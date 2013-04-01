@@ -17,19 +17,18 @@ El repositorio contiene codigo fuente HTML por cada capítulo de 'Ruby on Rails 
 sin diagonal inicial. Eso porque cuando tu ves los archivos HTML localmente todas las imágenes cargano correctamente. 
 
 Para obtener una versión completamente desplegado del libro, tu puede cambiar la ruta de las imágenes desde relativo a absoluto, tal como
-
     /images/figures/foo.png
 
-If this ends up being the case, I recommend writing a script to build the production output. You may find the Ruby line
+Si esto resulta ser el caso, Recomiendo escribir un script para crear la justa version en produccion. Tu tiene que encontrar la siguiente linea de codigo
 
 ```ruby
 text.gsub!('"images/', '"/images/')
 ```
 
-to be useful in this context.
+para ser útil en este contexto.
 
-## License
+## Licencia
 
-*Ruby on Rails Tutorial, 2nd Edition*. Copyright &copy; 2012 by Michael Hartl.
+*Ruby on Rails Tutorial, 2nd Edition*. Copyright &copy (Derecho de Autor) ; 2012 de Michael Hartl.
 
-The HTML source of the Ruby on Rails Tutorial book is available under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/), which allows translation of the book as long as you give attribution to the original author ([Michael Hartl](http://michaelhartl.com/)) and distribute the translation under the same license.
+El codigo fuente HTML de el libro 'Ruby On Rails Tutorial' que está disponible bajo el [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/), que permite la traducción del libro, siempre y cuando te dan la atribución al autor original ([Michael Hartl](http://michaelhartl.com/)) y distribuir la traducción bajo la misma licencia.
