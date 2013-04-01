@@ -1,22 +1,22 @@
 # Translation of the Ruby on Rails Tutorial, 2nd Edition
 
-This repository contains the HTML source for the [Ruby on Rails Tutorial, 2nd edition](http://railstutorial.org/), with the goal of allowing translation of the tutorial to languages other than the [*lingua franca*](http://en.wikipedia.org/wiki/Lingua_franca). 
+Esto repositorio contiene el codigo funte  HTML por [Ruby on Rails Tutorial, 2nd edition](http://railstutorial.org/), con el proposito de permitir la traduccion de esto tutorial en otro idioma aparte la [*lingua franca*](http://en.wikipedia.org/wiki/Lingua_franca). 
 
-## Getting started
+## Para Empiezar
 
-To translate the Ruby on Rails Tutorial, simply fork this repository, clone it to your local machine, and get started translating it to your language of choice. If you want to work with other translators (which I certainly encourage), add them as collaborators to the repository as needed. At any time, you are free to deploy the result to a URL of your choice. Once it's up and ready for public consumption, send the URI to `admin@railstutorial.org` and I'll link to it from the main Rails Tutorial website.
+Por traducir el Tutorial de Ruby On Rails, simplemente 'fork' esto repositorio, clonalo en tu maquina local, y empieza a traducir en el tuyo idioma. Si tu quiere trabajar con otro traductores (que sin duda es algo que yo fomentaria), agregalo como colaboradores al repositorio donde estas trabajando. En cualquier momento tu eres libre de poner el resultado en una URL de tu elegion. Una vez que está arriba y listo para el consumo público, enviar URI a `admin@railstutorial.org` y yo voy a enviar el link a eso desde el principal sitio de 'Rails Tutorial'.
 
-Since I often make minor fixes to the book, I recommend occasionally merging in changes from the master branch. If merging causes too many conflicts, you can omit this optional step.
+Puesto que a menudo hacen correcciones pequeñas al libro, yo recomiendo el 'merging' (agregar los cambios) en el 'master branch' (el ramo principal del repositorio) de vez en cuando. Si te das cuentas que el 'merging' la fusión provoca demasiados conflictos, tu puede omitir este paso optionale.
 
-## Source files
+## Codigo Fuente
 
-The repository contains an HTML source file for each chapter of the Ruby on Rails Tutorial, as well as two CSS files for styling and an images directory with all of the book's figures. Note that the image URIs in the HTML files are *relative*, i.e., they appear as
+El repositorio contiene codigo fuente HTML por cada capítulo de 'Ruby on Rails Tutorial', así como dos CSS archivos por le estilo y el directorio de las imágenes donde estan todos las imágenes del libro. Tenga en cuenta que la imagen de los URI en los archivos HTML son *relativo*, exemplo, aparecen como
 
     images/figures/foo.png
 
-with no leading slash. This is so that when you view the HTML files locally all the images load correctly. 
+sin diagonal inicial. Eso porque cuando tu ves los archivos HTML localmente todas las imágenes cargano correctamente. 
 
-For a fully deployed version of the book, you may have to change the image paths from relative to absolute, such as
+Para obtener una versión completamente desplegado del libro, tu puede cambiar la ruta de las imágenes desde relativo a absoluto, tal como
 
     /images/figures/foo.png
 
