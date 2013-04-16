@@ -586,7 +586,7 @@ to install Ruby on Rails in Ubuntu on the Sudobits Blog</a>.</p>
 <h4><a id="sec-1_2_2_4" href="beginning.html#sec-install_rubygems" class="heading">Instalación de RubyGems</a></h4>
 
 
-<p>RubyGems is a package manager for Ruby projects, and there are many useful libraries (including Rails) available as Ruby packages, or <em>gems</em>. Installing RubyGems should be easy once you install Ruby. In fact, if you have <a href="http://rvm.io/rvm/install/">installed RVM</a>, you already have RubyGems, since RVM includes it automatically:</p>
+<p><span id="result_box88" lang="es">RubyGems es un gestor de paquetes para los proyectos de Ruby</span>, <span id="result_box89" lang="es">y hay muchas librerías (library) útiles (incluyendo Rails) disponibles como paquetes de Ruby</span>, o gemas (<em>gems</em>). <span id="result_box90" lang="es">Instalar RubyGems debe ser fácil una vez que instale Ruby. De hecho, si usted tiene</span> <a href="http://rvm.io/rvm/install/">instalado RVM</a>, <span id="result_box91" lang="es">ya tiene RubyGems, porque ya incluye automáticamente</span> RVM:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> which gem
 <span class="go">/Users/mhartl/.rvm/rubies/ruby-1.9.3-p0/bin/gem</span>
@@ -594,44 +594,43 @@ to install Ruby on Rails in Ubuntu on the Sudobits Blog</a>.</p>
 </div>
 
 
-<p>If you don&rsquo;t already have it, you should <a href="http://rubyforge.org/frs/?group_id=126">download RubyGems</a>, extract it, and then go to the <code>rubygems</code> directory and run the setup program:</p>
+<p><span id="result_box92" lang="es">Si no lo tiene, debe</span> <a href="http://rubyforge.org/frs/?group_id=126">descargar RubyGems</a>, <span id="result_box93" lang="es">extraerlo, y luego ir al directorio de</span> <code>rubygems</code><span id="result_box94" lang="es">y ejecutar la instalación de programa</span>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> ruby setup.rb
 </pre></div>
 </div>
 
 
-<p>(If you get a permissions error here, recall from <a class="ref" href="beginning.html#sec-conventions">Sección&nbsp;1.1.3</a> that you may have to use <code>sudo</code>.)</p>
+<p>(<span id="result_box95" lang="es">Si obtiene un error de permisos aquí, ir a la</span> <a class="ref" href="beginning.html#sec-conventions">Sección&nbsp;1.1.3</a><span id="result_box96" lang="es"> puede que tenga que utilizar</span><code> sudo</code>.)</p>
 
-<p>If you already have RubyGems installed, you should make sure your system uses the version used in this tutorial:</p>
+<p><span id="result_box97" lang="es">Si ya han RubyGems instalado, debe asegurarse que su sistema utiliza la versión utilizada en este tutorial</span>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> gem update --system 1.8.24
 </pre></div>
 </div>
 
 
-<p>Freezing your system to this particular version will help prevent conflicts as RubyGems changes in the future.</p>
+<p><span id="result_box98" lang="es">Congelar el sistema para esta versión en particular le ayudará a prevenir conflictos como los cambios de RubyGems en el futuro</span>.</p>
 
-<p>When installing gems, by default RubyGems generates two different kinds of documentation (called ri and rdoc), but many Ruby and Rails developers find that the time to build them isn&rsquo;t worth the benefit. (Many programmers rely on online documentation instead of the native ri and rdoc documents.) To prevent the automatic generation of the documentation, I recommend making a gem configuration file called <code>.gemrc</code> in your home directory as in <a class="ref" href="beginning.html#code-create_gemrc">Listing&nbsp;1.1</a> with the line in <a class="ref" href="beginning.html#code-gemrc">Listing&nbsp;1.2</a>. (The tilde&nbsp;&ldquo;<tt class="verb">~</tt>&rdquo; means &ldquo;home directory&rdquo;, while the dot&nbsp;<tt class="verb">.</tt> in <code>.gemrc</code> makes the file hidden,
-which is a common convention for configuration files. )</p>
+<p><span id="result_box99" lang="es">Al instalar las gemas (gems), de forma predeterminada RubyGems genera dos tipos de documentación (llamados ri y rdoc), pero muchos desarrolladores de Ruby on  Rails piensan que no vale la pena esperar la copia en local de esa documentación. (Muchos desarrolladores se basan en la documentación en línea en lugar de la documentación ri y rdoc nativas.) Para evitar la generación automática de la documentación, yo recomendaría hacer un archivo de configuración llamado </span><code>.gemrc</code> en el directorio principal <a class="ref" href="beginning.html#code-create_gemrc">Listing&nbsp;1.1</a> con la linea en <a class="ref" href="beginning.html#code-gemrc">Listing&nbsp;1.2</a>. (<span id="result_box100" lang="es">La tilde "~" significa "directorio principal", mientras que el punto en</span><code>.gemrc</code> hace que el archivo es oculto, es una convención común para los archivos de configuración. )</p>
 
 <div class="label" id="code-create_gemrc"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.1.</span> <span class="description">Creating a gem configuration file.</span> </div>
+<div class="listing"><span class="header">Listing 1.1.</span> <span class="description"><span id="result_box101" lang="es">Creación de un archivo de configuración para las gemas</span></span> </div>
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> subl ~/.gemrc
 </pre></div>
 </div></div>
 
 
-<p>Here <code>subl</code> is the command-line command to launch Sublime Text on OS&nbsp;X, which you can set up using the <a href="http://www.sublimetext.com/docs/2/osx_command_line.html">Sublime Text&nbsp;2 documentation for the OS&nbsp;X command line</a>. If you&rsquo;re on a different platform, or if you&rsquo;re using a different editor, you should replace this command as necessary (i.e., by double-clicking the application icon or by using an alternate command such as <code>mate</code>, <code>vim</code>, <code>gvim</code>, or <code>mvim</code>). For brevity, throughout the rest of this tutorial I&rsquo;ll use <code>subl</code> as a shorthand for &ldquo;open with your favorite text editor.&rdquo;</p>
+<p>Aquí <code>subl</code><span id="result_box102" lang="es"> es el comando de línea de comandos para lanzar Sublime Text en OS X, que se puede configurar mediante la </span><a href="http://www.sublimetext.com/docs/2/osx_command_line.html">Sublime Text&nbsp;2 documentation for the OS&nbsp;X command line</a>. <span id="result_box103" lang="es">Si estás en una plataforma diferente, o si usted está usando un editor diferente, deberá cambiar este comando </span> (ejemplo, <span id="result_box104" lang="es">haciendo doble clic en el icono de la aplicación o usando un comando alternativo, como</span> <code>mate</code>, <code>vim</code>, <code>gvim</code>, o <code>mvim</code>). <span id="result_box105" lang="es">Por razones de brevedad, en todo el resto de este tutorial voy a utilizar</span> <code>subl</code><span id="result_box106" lang="es"> como una abreviatura de "abrir con tu editor de texto favorito."</span></p>
 
 <div class="label" id="code-gemrc"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.2.</span> <span class="description">Suppressing the ri and rdoc documentation in <code>.gemrc</code>.</span> </div>
+<div class="listing"><span class="header">Listing 1.2.</span> <span class="description"><span id="result_box107" lang="es">La supresión de la documentación ri y  rdoc</span><code>.gemrc</code>.</span> </div>
 <div class="code"><div class="highlight"><pre><span class="ss">install:</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">rdoc</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ri</span>
 <span class="ss">update:</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">rdoc</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ri</span>
 </pre></div>
@@ -646,14 +645,14 @@ which is a common convention for configuration files. )</p>
 <h4><a id="sec-1_2_2_5" href="beginning.html#sec-install_rails" class="heading">Install Rails</a></h4>
 
 
-<p>Once you&rsquo;ve installed RubyGems, installing Rails should be easy. This tutorial standardizes on Rails&nbsp;3.2, which we can install as follows:</p>
+<p><span id="result_box108" lang="es">Una vez que haya instalado RubyGems, la instalación de Rails debe ser fácil. En este tutorial se estandariza en Rails 3.2, que podemos instalar en la siguiente manera</span>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> gem install rails -v 3.2.13
 </pre></div>
 </div>
 
 
-<p>To check your Rails installation, run the following command to print out the version number:</p>
+<p><span id="result_box109" lang="es">Para comprobar la instalación de Rails, ejecute el comando siguiente para imprimir el número de versión</span>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> rails -v
 <span class="go">Rails 3.2.13</span>
@@ -661,9 +660,9 @@ which is a common convention for configuration files. )</p>
 </div>
 
 
-<p><em>Note:</em> If you installed Rails using the Rails Installer in <a class="ref" href="beginning.html#sec-rails_installer_windows">Sección&nbsp;1.2.2.1</a>, there might be slight version differences. As of this writing, those differences are not relevant, but in the future, as the current Rails version diverges from the one used in this tutorial, these differences may become significant. I am currently working with Engine Yard to create links to specific versions of the Rails Installer.</p>
+<p><span id="result_box110" lang="es">Nota: Si ha instalado Rails utilizando el Rails Installer </span><a class="ref" href="beginning.html#sec-rails_installer_windows">Sección&nbsp;1.2.2.1</a>, <span id="result_box111" lang="es">puede haber ligeras diferencias de versión. Al escribir estas líneas, estas diferencias no son relevantes, pero en el futuro, ya que la versión actual de Rails difiere de la utilizada en este tutorial, estas diferencias pueden llegar a ser significativas. Actualmente estoy trabajando con Engine Yard para crear enlaces a versiones específicas de Rails Installer</span>.</p>
 
-<p>If you&rsquo;re running Linux, you might have to install a couple of other packages at this point:</p>
+<p><span id="result_box112" lang="es">Si está ejecutando Linux, puede que tenga que instalar otros par de paquetes este momento</span>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> sudo apt-get install libxslt-dev libxml2-dev libsqlite3-dev <span class="c"># Linux only</span>
 </pre></div>
@@ -675,16 +674,16 @@ which is a common convention for configuration files. )</p>
 <div class="label" id="sec-the_first_application"></div>
 
 
-<h3><a id="sec-1_2_3" href="beginning.html#sec-the_first_application" class="heading"><span class="number">1.2.3</span> The first application</a></h3>
+<h3><a id="sec-1_2_3" href="beginning.html#sec-the_first_application" class="heading"><span class="number">1.2.3</span> La primera aplicación</a></h3>
 
 
-<p>Virtually all Rails applications start the same way, with the <code>rails</code> command. This handy program creates a skeleton Rails application in a directory of your choice. To get started, make a directory for your Rails projects and then run the <code>rails</code> command to make the first application (<a class="ref" href="beginning.html#code-rails_command">Listing&nbsp;1.3</a>):</p>
+<p><span id="result_box113" lang="es">Prácticamente todas las aplicaciones Rails inician enla misma manera, con el comando </span><code>rails</code>. <span id="result_box114" lang="es">Este útil programa crea un esqueleto de la aplicación en Rails en un directorio de su elección. Para empezar, cree un directorio para sus proyectos Rails y ejecute el</span> comando <code>rails</code>  <span id="result_box115" lang="es">para crear la primera aplicación </span> (<a class="ref" href="beginning.html#code-rails_command">Listing&nbsp;1.3</a>):</p>
 
 <div class="label" id="code-rails_command"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.3.</span> <span class="description">Running <code>rails</code> to generate a new application.</span> </div>
+<div class="listing"><span class="header">Listing 1.3.</span> <span class="description">Lanzando <code>rails</code><span id="result_box116" lang="es"> para generar una nueva aplicación</span>.</span> </div>
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> mkdir rails_projects
 <span class="gp">$</span> <span class="nb">cd </span>rails_projects
 <span class="gp">$</span> rails new first_app
@@ -725,15 +724,16 @@ which is a common convention for configuration files. )</p>
 </div></div>
 
 
-<p>As seen at the end of <a class="ref" href="beginning.html#code-rails_command">Listing&nbsp;1.3</a>, running <code>rails</code> automatically runs the <code>bundle install</code> command after the file creation is done. If that step doesn&rsquo;t work right now, don&rsquo;t worry; follow the steps in <a class="ref" href="beginning.html#sec-bundler">Sección&nbsp;1.2.4</a> and you should be able to get it to work.</p>
+<p><span id="result_box117" lang="es">Como se ve <span id="result_box118" lang="es">en el extremo de la página</span></span> <a class="ref" href="beginning.html#code-rails_command">Listing&nbsp;1.3</a>, lanzando <code>rails</code><span id="result_box119" lang="es"> ejecuta automáticamente el comando </span><code> bundle install</code><span id="result_box120" lang="es"> después de la creación del archivo. Si este paso no funciona en estos momentos, no se preocupe, siga los pasos de</span><a class="ref" href="beginning.html#sec-bundler"> Sección&nbsp;1.2.4</a><span id="result_box121" lang="es"> y usted debería ser capaz de hacerlo funcionar</span>.</p>
 
-<p>Notice how many files and directories the <code>rails</code> command creates. This standard directory and file structure (<a class="ref" href="beginning.html#fig-directory_structure_rails_3_2">Figure&nbsp;1.2</a>) is one of the many advantages of Rails; it immediately gets you from zero to a functional (if minimal) application. Moreover, since the structure is common to all Rails apps, you can immediately get your bearings when looking at someone else&rsquo;s code. A summary of the default Rails files appears in <a class="ref" href="beginning.html#table-rails_directory_structure">Table&nbsp;1.1</a>; we&rsquo;ll learn about most of these files and directories throughout the rest of this book. In particular, starting in <a class="ref" href="filling-in-the-layout.html#sec-the_asset_pipeline">Sección&nbsp;5.2.1</a>
-we&rsquo;ll discuss the <code>app/assets</code> directory, part of the <em>asset pipeline</em> (new as of Rails&nbsp;3.1) that makes it easier than ever to organize and deploy assets such as cascading style sheets and JavaScript files.</p>
+<p><span id="result_box122" lang="es">Observe cuántos archivos y directorios el comando</span> <code>rails</code> command crea. <span id="result_box123" lang="es">Esta estructura estándar de directorios y archivos</span> (<a class="ref" href="beginning.html#fig-directory_structure_rails_3_2">Figure&nbsp;1.2</a>) <span id="result_box124" lang="es">es una de las muchas ventajas de Rails</span>; <span id="result_box125" lang="es">inmediatamente te lleva desde cero hasta una funcional (aunque mínima) aplicación</span>. <span id="result_box126" lang="es">Por otra parte, dado que la estructura es común a todas las aplicaciones Rails, usted inmediatamente puede conseguir sus cojinetes cuando se mira en algún otro código. Un resumen de los archivos de una aplicación de Rails aparece en</span> <a class="ref" href="beginning.html#table-rails_directory_structure">Table&nbsp;1.1</a>; <span id="result_box127" lang="es">Vamos a aprender acerca de la mayoría de estos archivos y directorios a través del resto de este libro</span>. <span id="result_box128" lang="es">En particular, a partir de</span> <a class="ref" href="filling-in-the-layout.html#sec-the_asset_pipeline">Sección&nbsp;5.2.1</a><span id="result_box129" lang="es"> vamos a discutir el directorio </span><code>app/assets</code>, <span id="result_box130" lang="es">parte de la</span> <em>asset pipeline</em> (<span id="result_box131" lang="es">introduja con</span> Rails&nbsp;3.1) <span id="result_box132" lang="es">que hace que sea más fácil que nunca para organizar y desplegar</span> assets tales como estilo en cascada (CSS) y JavaScript files.</p>
 
 <div class="label" id="fig-directory_structure_rails_3_2"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/directory_structure_rails_31.png" alt="directory_structure_rails_31" /></span></div><div class="caption"><span class="header">Figure 1.2: </span><span class="description">The directory structure for a newly hatched Rails app.&nbsp;<a href="http://railstutorial.org/images/figures/directory_structure_rails_31-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/directory_structure_rails_31.png" alt="directory_structure_rails_31" /></span></div>
+<div class="caption"><span class="header">Figure 1.2: </span><span class="description">La estructura de directorios aplicación Rails recién nacidas.&nbsp;<a href="http://railstutorial.org/images/figures/directory_structure_rails_31-full.png">(tamaño completo)</a></span></div>
+</div>
 
 
 
@@ -742,10 +742,37 @@ we&rsquo;ll discuss the <code>app/assets</code> directory, part of the <em>asset
 
 
 <div class="table"><div class="center">
-<table class="tabular"><tr><th class="align_left"><strong>File/Directory</strong></th><th class="align_left"><strong>Purpose</strong></th></tr><tr class="top_bar"><td class="align_left"><code>app/</code></td><td class="align_left">Core application (app) code, including models, views, controllers, and helpers</td></tr><tr><td class="align_left"><code>app/assets</code></td><td class="align_left">Applications assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>config/</code></td><td class="align_left">Application configuration</td></tr><tr><td class="align_left"><code>db/</code></td><td class="align_left">Database files</td></tr><tr><td class="align_left"><code>doc/</code></td><td class="align_left">Documentation for the application</td></tr><tr><td
-class="align_left"><code>lib/</code></td><td class="align_left">Library modules</td></tr><tr><td class="align_left"><code>lib/assets</code></td><td class="align_left">Library assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>log/</code></td><td class="align_left">Application log files</td></tr><tr><td class="align_left"><code>public/</code></td><td class="align_left">Data accessible to the public (e.g., web browsers), such as error pages</td></tr><tr><td class="align_left"><code>script/rails</code></td><td class="align_left">A script for generating code, opening console sessions, or starting a local server</td></tr><tr><td class="align_left"><code>test/</code></td><td class="align_left">Application tests (made obsolete by the
-<code>spec/</code> directory in <a class="ref" href="static-pages.html#sec-static_pages_with_rails">Sección&nbsp;3.1.2</a>)</td></tr><tr><td class="align_left"><code>tmp/</code></td><td class="align_left">Temporary files</td></tr><tr><td class="align_left"><code>vendor/</code></td><td class="align_left">Third-party code such as plugins and gems</td></tr><tr><td class="align_left"><code>vendor/assets</code></td><td class="align_left">Third-party assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>README.rdoc</code></td><td class="align_left">A brief description of the application</td></tr><tr><td class="align_left"><code>Rakefile</code></td><td class="align_left">Utility tasks available via the <code>rake</code> command</td></tr><tr><td
-class="align_left"><code>Gemfile</code></td><td class="align_left">Gem requirements for this app</td></tr><tr><td class="align_left"><code>Gemfile.lock</code></td><td class="align_left">A list of gems used to ensure that all copies of the app use the same gem versions</td></tr><tr><td class="align_left"><code>config.ru</code></td><td class="align_left">A configuration file for <a href="http://rack.rubyforge.org/doc/">Rack middleware</a></td></tr><tr><td class="align_left"><code>.gitignore</code></td><td class="align_left">Patterns for files that should be ignored by Git</td></tr></table></div><div class="caption"><span class="header">Table 1.1: </span><span class="description">A summary of the default Rails directory structure.</span></div></div>
+<table class="tabular"><tr>
+  <th class="align_left"><strong>Arch./Directorios</strong></th>
+<th class="align_left"><strong>Propósito</strong></th>
+</tr><tr class="top_bar"><td class="align_left"><code>app/</code></td>
+<td class="align_left">Core aplicación (app) de código, incluyendo los modelos, vistas, controladores y ayudantes (helpers)</td>
+</tr><tr><td class="align_left"><code>app/assets</code></td><td class="align_left">Applications assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>config/</code></td>
+<td class="align_left">Configuracion de la aplicación</td>
+</tr><tr><td class="align_left"><code>db/</code></td>
+<td class="align_left">Archivos de base de datos</td>
+</tr><tr><td class="align_left"><code>doc/</code></td>
+<td class="align_left">Documentación de la aplicación</td>
+</tr><tr><td
+class="align_left"><code>lib/</code></td>
+<td class="align_left">Módulos de library</td>
+</tr><tr><td class="align_left"><code>lib/assets</code></td><td class="align_left">Library assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>log/</code></td>
+<td class="align_left">Archivos de log de la aplicación</td>
+</tr><tr><td class="align_left"><code>public/</code></td><td class="align_left">Data accessible to the public (e.g., web browsers), such as error pages</td></tr><tr><td class="align_left"><code>script/rails</code></td><td class="align_left">Una secuencia de comandos para generar el código, abriendo sesiones de consola, o iniciar un servidor local</td>
+</tr><tr><td class="align_left"><code>test/</code></td>
+<td class="align_left">Aplicación de prueba (obsoleta por la
+<code>spec/</code> directorio en <a class="ref" href="static-pages.html#sec-static_pages_with_rails">Sección&nbsp;3.1.2</a>)</td>
+</tr><tr><td class="align_left"><code>tmp/</code></td><td class="align_left">Los archivos temporales</td>
+</tr><tr><td class="align_left"><code>vendor/</code></td><td class="align_left">Código de terceros, tales como plugins y gemas</td>
+</tr><tr><td class="align_left"><code>vendor/assets</code></td><td class="align_left">Third-party assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>README.rdoc</code></td><td class="align_left">Una breve descripción de la aplicación</td>
+</tr><tr><td class="align_left"><code>Rakefile</code></td>
+<td class="align_left">Utilidades que están disponibles a través el comando <code>rake</code></td>
+</tr><tr><td
+class="align_left"><code>Gemfile</code></td>
+<td class="align_left">Gemas para esta aplicación</td>
+</tr><tr><td class="align_left"><code>Gemfile.lock</code></td>
+<td class="align_left">Una lista de gemas utiliza para asegurar que todas las copias de la aplicación utilice las mismas versiones de gemas</td>
+</tr><tr><td class="align_left"><code>config.ru</code></td><td class="align_left">A configuration file for <a href="http://rack.rubyforge.org/doc/">Rack middleware</a></td></tr><tr><td class="align_left"><code>.gitignore</code></td><td class="align_left">Patterns for files that should be ignored by Git</td></tr></table></div><div class="caption"><span class="header">Table 1.1: </span><span class="description">A summary of the default Rails directory structure.</span></div></div>
 
 
 
