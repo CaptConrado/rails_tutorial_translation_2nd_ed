@@ -746,8 +746,10 @@ to install Ruby on Rails in Ubuntu on the Sudobits Blog</a>.</p>
   <th class="align_left"><strong>Arch./Directorios</strong></th>
 <th class="align_left"><strong>Propósito</strong></th>
 </tr><tr class="top_bar"><td class="align_left"><code>app/</code></td>
-<td class="align_left">Core aplicación (app) de código, incluyendo los modelos, vistas, controladores y ayudantes (helpers)</td>
-</tr><tr><td class="align_left"><code>app/assets</code></td><td class="align_left">Applications assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>config/</code></td>
+<td class="align_left">El directorio de la aplicación (app) que contiene todo el código, incluyendo los modelos, vistas, controladores y ayudantes (helpers)</td>
+</tr><tr><td class="align_left"><code>app/assets</code></td>
+<td class="align_left">Recursos (assets) de la applicación  tale como<span id="result_box133" lang="es"> hojas de estilo </span>(CSS), archivos de JavaScript y  imágenes</td>
+</tr><tr><td class="align_left"><code>config/</code></td>
 <td class="align_left">Configuracion de la aplicación</td>
 </tr><tr><td class="align_left"><code>db/</code></td>
 <td class="align_left">Archivos de base de datos</td>
@@ -755,8 +757,9 @@ to install Ruby on Rails in Ubuntu on the Sudobits Blog</a>.</p>
 <td class="align_left">Documentación de la aplicación</td>
 </tr><tr><td
 class="align_left"><code>lib/</code></td>
-<td class="align_left">Módulos de library</td>
-</tr><tr><td class="align_left"><code>lib/assets</code></td><td class="align_left">Library assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>log/</code></td>
+<td class="align_left">Módulos de librería</td>
+</tr><tr><td class="align_left"><code>lib/assets</code></td><td class="align_left">Recursos (assets) de la applicación  tale como<span id="result_box134" lang="es"> hojas de estilo </span>(CSS), archivos de JavaScript y  imágenes</td>
+</tr><tr><td class="align_left"><code>log/</code></td>
 <td class="align_left">Archivos de log de la aplicación</td>
 </tr><tr><td class="align_left"><code>public/</code></td><td class="align_left">Data accessible to the public (e.g., web browsers), such as error pages</td></tr><tr><td class="align_left"><code>script/rails</code></td><td class="align_left">Una secuencia de comandos para generar el código, abriendo sesiones de consola, o iniciar un servidor local</td>
 </tr><tr><td class="align_left"><code>test/</code></td>
@@ -764,15 +767,20 @@ class="align_left"><code>lib/</code></td>
 <code>spec/</code> directorio en <a class="ref" href="static-pages.html#sec-static_pages_with_rails">Sección&nbsp;3.1.2</a>)</td>
 </tr><tr><td class="align_left"><code>tmp/</code></td><td class="align_left">Los archivos temporales</td>
 </tr><tr><td class="align_left"><code>vendor/</code></td><td class="align_left">Código de terceros, tales como plugins y gemas</td>
-</tr><tr><td class="align_left"><code>vendor/assets</code></td><td class="align_left">Third-party assets such as cascading style sheets (CSS), JavaScript files, and images</td></tr><tr><td class="align_left"><code>README.rdoc</code></td><td class="align_left">Una breve descripción de la aplicación</td>
+</tr><tr><td class="align_left"><code>vendor/assets</code></td>
+<td class="align_left">Recursos (assets) de terzero tale como hojas de estilo  (CSS), archivos de JavaScript, y imágenes</td>
+</tr><tr><td class="align_left"><code>README.rdoc</code></td><td class="align_left">Una breve descripción de la aplicación</td>
 </tr><tr><td class="align_left"><code>Rakefile</code></td>
 <td class="align_left">Utilidades que están disponibles a través el comando <code>rake</code></td>
 </tr><tr><td
 class="align_left"><code>Gemfile</code></td>
 <td class="align_left">Gemas para esta aplicación</td>
 </tr><tr><td class="align_left"><code>Gemfile.lock</code></td>
-<td class="align_left">Una lista de gemas utiliza para asegurar que todas las copias de la aplicación utilice las mismas versiones de gemas</td>
-</tr><tr><td class="align_left"><code>config.ru</code></td><td class="align_left">A configuration file for <a href="http://rack.rubyforge.org/doc/">Rack middleware</a></td></tr><tr><td class="align_left"><code>.gitignore</code></td><td class="align_left">Patterns for files that should be ignored by Git</td></tr></table></div><div class="caption"><span class="header">Table 1.1: </span><span class="description">A summary of the default Rails directory structure.</span></div></div>
+<td class="align_left">Una lista de gemas para asegurar que todas las copias de la aplicación utilice las mismas versiones de gemas</td>
+</tr><tr><td class="align_left"><code>config.ru</code></td>
+<td class="align_left">Un archivo de configuración para <a href="http://rack.rubyforge.org/doc/">Rack middleware</a></td>
+</tr><tr><td class="align_left"><code>.gitignore</code></td><td class="align_left">Patrones de archivos que deben ser ignorados por Git</td>
+</tr></table></div><div class="caption"><span class="header">Table 1.1: </span><span class="description">Un resumen de la estructura predeterminada dde una app en Rails.</span></div></div>
 
 
 
@@ -783,7 +791,7 @@ class="align_left"><code>Gemfile</code></td>
 <h3><a id="sec-1_2_4" href="beginning.html#sec-bundler" class="heading"><span class="number">1.2.4</span> Bundler</a></h3>
 
 
-<p>After creating a new Rails application, the next step is to use <em>Bundler</em> to install and include the gems needed by the app. As noted briefly in <a class="ref" href="beginning.html#sec-the_first_application">Sección&nbsp;1.2.3</a>, Bundler is run automatically (via <code>bundle install</code>) by the <code>rails</code> command, but in this Sección we&rsquo;ll make some changes to the default application gems and run Bundler again. This involves opening the <code>Gemfile</code> with your favorite text editor:</p>
+<p>Después de la creación de una nueva aplicación de Rails, el siguiente paso es usar <em>Bundler</em> para instalar las gemas que necesita la aplicación. Como se ha señalado brevemente en <a class="ref" href="beginning.html#sec-the_first_application">Sección&nbsp;1.2.3</a>, Bundler se ejecuta automáticamente (via <code>bundle install</code>) por el comando <code>rails</code>, per en esta Sección vamos a hacer algunos cambios en las gemas predeterminadas de la aplicación  y ejecutar Bundler otra vez. Esto implica la apertura de <code>Gemfile</code> con su editor de texto favorito:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>first_app/
 <span class="gp">$</span> subl Gemfile
@@ -791,13 +799,13 @@ class="align_left"><code>Gemfile</code></td>
 </div>
 
 
-<p>The result should look something like <a class="ref" href="beginning.html#code-default_gemfile">Listing&nbsp;1.4</a>. The code in this file is Ruby, but don&rsquo;t worry at this point about the syntax; <a class="ref" href="rails-flavored-ruby.html#top">Chapter&nbsp;4</a> will cover Ruby in more depth.</p>
+<p>El resultado debe ser similar a <a class="ref" href="beginning.html#code-default_gemfile">Listing&nbsp;1.4</a>. El código de este archivo es Ruby, pero no te preocupes en este punto acerca de la sintaxis; en el <a class="ref" href="rails-flavored-ruby.html#top">Chapter&nbsp;4</a> vamos a hablar de Ruby con mayor profundidad.</p>
 
 <div class="label" id="code-default_gemfile"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.4.</span> <span class="description">The default <code>Gemfile</code> in the <code>first_app</code> directory.</span> </div>
+<div class="listing"><span class="header">Listing 1.4.</span> <span class="description">El archivo predeterminado de <code>Gemfile</code> en el directorio de <code>first_app</code>.</span> </div>
 <div class="code"><div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
 
 <span class="n">gem</span> <span class="s1">&#39;rails&#39;</span><span class="p">,</span> <span class="s1">&#39;3.2.13&#39;</span>
@@ -837,15 +845,15 @@ class="align_left"><code>Gemfile</code></td>
 </div></div>
 
 
-<p>Many of these lines are commented out with the hash symbol&nbsp;<code>#</code>; they are there to show you some commonly needed gems and to give examples of the Bundler syntax. For now, we won&rsquo;t need any gems other than the defaults: Rails itself, some gems related to the asset pipeline (<a class="ref" href="filling-in-the-layout.html#sec-the_asset_pipeline">Sección&nbsp;5.2.1</a>), the gem for the jQuery JavaScript library, and the gem for the Ruby interface to the <a href="http://www.sqlite.org/">SQLite database</a>.</p>
+<p>Muchas de estas líneas están comentadas por el símbolo&nbsp;<code>#</code>; están ahí para mostrarte algunas gemas comúnmente necesarias y dar ejemplos de la sintaxis de Bundler. Por el momento, no necesitaremos ningún gemas diferente de las predeterminadas de Rails, algunas gemas relacionadas con asset pipeline (<a class="ref" href="filling-in-the-layout.html#sec-the_asset_pipeline">Sección&nbsp;5.2.1</a>), la gema de la librería JavaScript llamada jQuery, y la gema de la interfaz de Ruby con <a href="http://www.sqlite.org/">SQLite database</a>.</p>
 
-<p>Unless you specify a version number to the <code>gem</code> command, Bundler will automatically install the latest version of the gem. Unfortunately, gem updates often cause minor but potentially confusing breakage, so in this tutorial we&rsquo;ll include explicit version numbers known to work, as seen in <a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> (which also omits the commented-out lines from <a class="ref" href="beginning.html#code-default_gemfile">Listing&nbsp;1.4</a>).</p>
+<p>A menos que se especifique un número de versión en el comando <code>gem</code>, Bundler instalará automáticamente la última versión de la gema. Por desgracia, las actualizaciones de la gema suele causar problema que pueden llevar a confusión, por eso en este  tutorial vamos a incluir los números de versión explícito que ya sabemos que funcionan, como se ve en <a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> (que también omite las líneas comentadas como resulta en <a class="ref" href="beginning.html#code-default_gemfile">Listing&nbsp;1.4</a>).</p>
 
 <div class="label" id="code-gemfile_sqlite_version"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.5.</span> <span class="description">A <code>Gemfile</code> with an explicit version of each Ruby gem.</span> </div>
+<div class="listing"><span class="header">Listing 1.5.</span> <span class="description">Un <code>Gemfile</code> con una versión explícita de cada gema de Ruby.</span> </div>
 <div class="code"><div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
 
 <span class="n">gem</span> <span class="s1">&#39;rails&#39;</span><span class="p">,</span> <span class="s1">&#39;3.2.13&#39;</span>
@@ -869,28 +877,28 @@ class="align_left"><code>Gemfile</code></td>
 </div></div>
 
 
-<p><a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> changes the line for jQuery, the default JavaScript library used by Rails, from</p>
+<p><a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> cambios en la línea de jQuery, la libreria predeterminada JavaScript usada en Rails, de</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;jquery-rails&#39;</span>
 </pre></div>
 </div>
 
 
-<p>to</p>
+<p>a</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;jquery-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;2.0.2&#39;</span>
 </pre></div>
 </div>
 
 
-<p>We&rsquo;ve also changed</p>
+<p>También hemos cambiado</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;sqlite3&#39;</span>
 </pre></div>
 </div>
 
 
-<p>to</p>
+<p>a</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
   <span class="n">gem</span> <span class="s1">&#39;sqlite3&#39;</span><span class="p">,</span> <span class="s1">&#39;1.3.5&#39;</span>
@@ -899,9 +907,9 @@ class="align_left"><code>Gemfile</code></td>
 </div>
 
 
-<p>which forces Bundler to install version <code>1.3.5</code> of the <code>sqlite3</code> gem. Note that we&rsquo;ve also taken this opportunity to arrange for SQLite to be included only in a development environment (<a class="ref" href="sign-up.html#sec-rails_environments">Sección&nbsp;7.1.1</a>), which prevents potential conflicts with the database used by Heroku (<a class="ref" href="beginning.html#sec-deploying">Sección&nbsp;1.4</a>).</p>
+<p>que fuerzas Bundler a instalar las versión <code>1.3.5</code> de la gema <code>sqlite3</code>. Tenga en cuenta que también hemos aprovechado de esta oportunidad para  incluir SQLite sólo en un entorno de desarrollo (<a class="ref" href="sign-up.html#sec-rails_environments">Sección&nbsp;7.1.1</a>), lo que evita posibles conflictos con la base de datos utilizada por Heroku (<a class="ref" href="beginning.html#sec-deploying">Sección&nbsp;1.4</a>).</p>
 
-<p><a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> also changes a few other lines, converting</p>
+<p><a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> también cambia algunas otras líneas, la conversión de</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">group</span> <span class="ss">:assets</span> <span class="k">do</span>
   <span class="n">gem</span> <span class="s1">&#39;sass-rails&#39;</span><span class="p">,</span>   <span class="s1">&#39;~&gt; 3.2.3&#39;</span>
@@ -912,7 +920,7 @@ class="align_left"><code>Gemfile</code></td>
 </div>
 
 
-<p>to</p>
+<p>a</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">group</span> <span class="ss">:assets</span> <span class="k">do</span>
   <span class="n">gem</span> <span class="s1">&#39;sass-rails&#39;</span><span class="p">,</span>   <span class="s1">&#39;3.2.5&#39;</span>
@@ -923,25 +931,24 @@ class="align_left"><code>Gemfile</code></td>
 </div>
 
 
-<p>The syntax</p>
+<p><span id="result_box135" lang="es">La sintaxis</span></p>
 
 <div class="code"><div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;uglifier&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.2.3&#39;</span>
 </pre></div>
 </div>
 
 
-<p>installs the latest version of the <code>uglifier</code> gem (which handles file compression for the asset pipeline) as long as it&rsquo;s greater than version&nbsp;<code>1.2.3</code>&mdash;even if it&rsquo;s, say, version&nbsp;<code>7.2</code>. Meanwhile, the code</p>
+<p>Instala la última versión de la gema <code>uglifier</code> (que se ocupa de la compresión de archivos para la asset pipeline) mientras que es mayor que la versión&nbsp;<code>1.2.3</code>&mdash;incluso si aparece versión&nbsp;<code>7.2</code>. Mientras, el código</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;coffee-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 3.2.2&#39;</span>
 </pre></div>
 </div>
 
 
-<p>installs the gem <code>coffee-rails</code> (also needed by the asset pipeline) as long as it&rsquo;s lower than version&nbsp;<code>3.3</code>. In other words, the <tt class="verb">&gt;=</tt> notation always performs upgrades, whereas the <tt class="verb">~&gt; 3.2.2</tt> notation only performs upgrades to minor point releases (e.g., from <code>3.1.1</code> to <code>3.1.2</code>), but not to major point releases (e.g., from <code>3.1</code> to <code>3.2</code>). Unfortunately, experience shows that even minor point releases can break things, so for the <em>Tutorial de Rails</em> we&rsquo;ll err on the side of caution by including exact version numbers for virtually all gems. (The only exception is gems that are in release candidate or beta stage as of this writing; for those gems, we&rsquo;ll
-use <tt class="verb">~&gt;</tt> so that the final versions will be loaded once they&rsquo;re done.) You are welcome to use the most up-to-date version of any gem, including using to the <tt class="verb">~&gt;</tt> construction in the <code>Gemfile</code> (which I generally recommend for more advanced users), but be warned that this may cause the tutorial to act unpredictably.</p>
+<p>instala la gema  <code>coffee-rails</code> (también es necesario por el asset pipeline) que es inferior a la versión&nbsp;<code>3.3</code>. En otras palabras, la <tt class="verb">&gt;=</tt> notación siempre realiza actualizaciones, donde la notación <tt class="verb">~&gt; 3.2.2</tt> sólo realiza las actualizaciones a versiones puntuales menores (ejemplo, de <code>3.1.1</code> a <code>3.1.2</code>), pero no para las versiones principales mayores (eejemplo, de <code>3.1</code> a <code>3.2</code>). Por desgracia, la experiencia demuestra que incluso las actualizaciones a versiones puntuales menores pueden romper cosas, así para el <em>Tutorial de Rails</em> vamos a errar por el lado de la precaución al incluir números de versión exactos para prácticamente todas las gemas. (La única excepción son las gemas que se encuentran en versión candidata o en fase beta de este escrito, para esas gemas utilizaremos <tt class="verb">~&gt;</tt> de manera que se cargarán las versiones finales, una vez que haya terminado.) Le invitamos a utilizar la versión más actualizada de cualquier gema, incluyendo el uso del símbolo construcción <tt class="verb">~&gt;</tt> en el <code>Gemfile</code> (que por lo general lo recomiendo para los usuarios más avanzados), pero ten en cuenta que esto puede hacer que el tutorial puede actuar de manera imprevisible.</p>
 
-<p>Once you&rsquo;ve assembled the proper <code>Gemfile</code>, install the gems using
-<code>bundle update</code><sup class="footnote" id="fnref-1_14"><a href="#fn-1_14">14</a></sup> and <code>bundle install</code>:</p>
+<p>Una vez que haya reunido el correcto <code>Gemfile</code>, instalar las gemas usandothe gems utilizando
+<code>bundle update</code><sup class="footnote" id="fnref-1_14"><a href="#fn-1_14">14</a></sup> y <code>bundle install</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> bundle update
 <span class="gp">$</span> bundle install
@@ -953,7 +960,7 @@ use <tt class="verb">~&gt;</tt> so that the final versions will be loaded once t
 </div>
 
 
-<p>If you&rsquo;re running OS&nbsp;X and you get an error about missing Ruby header files (e.g., <code>ruby.h</code>) at this point, you may need to install Xcode. These are developer tools that came with your OS&nbsp;X installation disk, but to avoid the full installation I recommend the much smaller <a href="https://developer.apple.com/downloads/">Command Line Tools for Xcode</a>.<sup class="footnote" id="fnref-1_15"><a href="#fn-1_15">15</a></sup> If you get a libxslt error when installing the Nokogiri gem, try reinstalling Ruby:</p>
+<p>Si usted está utilizando OS&nbsp;X y se obtiene un error para la falta de archivos de cabecera Ruby (ejemplo, <code>ruby.h</code>) en este punto, es posible que necesite de instalar Xcode. <span id="result_box136" lang="es">Estas son las herramientas de desarrollo que vienen con su</span> disco de instalación de OS&nbsp;X, pero para evitar la instalación completa recomiendo el mucho más pequeño <a href="https://developer.apple.com/downloads/">Command Line Tools for Xcode</a>.<sup class="footnote" id="fnref-1_15"><a href="#fn-1_15">15</a></sup> Si usted recibe un error de libxslt cuando esta instalando la gema de Nokogiri, intente volver a instalar Ruby:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> rvm reinstall 1.9.3
 <span class="gp">$</span> bundle install
@@ -961,7 +968,7 @@ use <tt class="verb">~&gt;</tt> so that the final versions will be loaded once t
 </div>
 
 
-<p>The <code>bundle install</code> command might take a few moments, but when it&rsquo;s done our application will be ready to run. <em>Note:</em> This setup is fine for the first app, but it isn&rsquo;t ideal. <a class="ref" href="static-pages.html#top">Chapter&nbsp;3</a> covers a more powerful (and slightly more advanced) method for installing Ruby gems with Bundler.</p>
+<p>El comando <code>bundle install</code> puede tardar unos minutos, pero cuando se acabará la instalación de la gemas la aplicación estará lista para funcionar. <em>Nota:</em> Esta configuración está muy bien para la primera aplicación, pero no es ideal. El <a class="ref" href="static-pages.html#top">Chapter&nbsp;3</a> cubre un método más potente (y un poco más avanzado) para la instalación de la gemas de Ruby gems con Bundler.</p>
 
 <div class="label" id="sec-rails_server"></div>
 
@@ -969,7 +976,7 @@ use <tt class="verb">~&gt;</tt> so that the final versions will be loaded once t
 <h3><a id="sec-1_2_5" href="beginning.html#sec-rails_server" class="heading"><span class="number">1.2.5</span> <tt>rails server</tt></a></h3>
 
 
-<p>Thanks to running <code>rails new</code> in <a class="ref" href="beginning.html#sec-the_first_application">Sección&nbsp;1.2.3</a> and <code>bundle install</code> in <a class="ref" href="beginning.html#sec-bundler">Sección&nbsp;1.2.4</a>, we already have an application we can run&mdash;but how? Happily, Rails comes with a command-line program, or <em>script</em>, that runs a <em>local</em> web server, visible only from your development machine:<sup class="footnote" id="fnref-1_16"><a href="#fn-1_16">16</a></sup></p>
+<p>Gracias a la ejecución de <code>rails new</code> en <a class="ref" href="beginning.html#sec-the_first_application">Sección&nbsp;1.2.3</a> y <code>bundle install</code> en <a class="ref" href="beginning.html#sec-bundler">Sección&nbsp;1.2.4</a>, ya tenemos una aplicación que podemos correr, pero ¿cómo? Por suerte, Rails viene con un programa de línea de comandos, o <em>script</em>, que ejecuta un <em>local</em> web server, visible sólo desde el equipo de desarrollo:<sup class="footnote" id="fnref-1_16"><a href="#fn-1_16">16</a></sup></p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> rails server
 <span class="go">=&gt; Booting WEBrick</span>
@@ -980,8 +987,7 @@ use <tt class="verb">~&gt;</tt> so that the final versions will be loaded once t
 </div>
 
 
-<p>(If your system complains about the lack of a JavaScript runtime, visit the <a href="https://github.com/sstephenson/execjs">execjs page at GitHub</a> for a list of possibilities. I particularly recommend installing <a href="http://nodejs.org/">Node.js</a>.) This tells us that the application is running on <a href="http://en.wikipedia.org/wiki/TCP_and_UDP_port">port number</a> 3000<sup class="footnote" id="fnref-1_17"><a href="#fn-1_17">17</a></sup> at the address <code>0.0.0.0</code>. This address tells the computer to listen on every available IP address configured on that specific machine; in particular, we can view the application using the special address <code>127.0.0.1</code>, which is also known as <code>localhost</code>. We can see the result of visiting <a href="http://localhost:3000/">http://localhost:3000/</a>
-in <a class="ref" href="beginning.html#fig-riding_rails_31">Figure&nbsp;1.3</a>.</p>
+<p>(Si el sistema se queja de la falta de una JavaScript runtime, visite el <a href="https://github.com/sstephenson/execjs">execjs page at GitHub</a> para obtener una lista de posibilidades. Yo recomiendo instalar <a href="http://nodejs.org/">Node.js</a>.) Esto nos dice que la aplicación se está ejecutando en <a href="http://en.wikipedia.org/wiki/TCP_and_UDP_port">port number</a> 3000<sup class="footnote" id="fnref-1_17"><a href="#fn-1_17">17</a></sup> en la dirección <code>0.0.0.0</code>. Esta dirección le dice a la computadora para escuchar en todas las direcciones IP disponibles configurada en ese equipo específico; en particular, se puede ver la aplicación utilizando la dirección especial <code>127.0.0.1</code>, que también se conoce como <code>localhost</code>. Podemos ver el resultado de la visita <a href="http://localhost:3000/">http://localhost:3000/</a>en <a class="ref" href="beginning.html#fig-riding_rails_31">Figure&nbsp;1.3</a>.</p>
 
 <div class="label" id="fig-riding_rails_31"></div>
 
