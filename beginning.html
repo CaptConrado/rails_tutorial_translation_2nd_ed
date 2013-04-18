@@ -987,66 +987,70 @@ class="align_left"><code>Gemfile</code></td>
 </div>
 
 
-<p>(Si el sistema se queja de la falta de una JavaScript runtime, visite el <a href="https://github.com/sstephenson/execjs">execjs page at GitHub</a> para obtener una lista de posibilidades. Yo recomiendo instalar <a href="http://nodejs.org/">Node.js</a>.) Esto nos dice que la aplicación se está ejecutando en <a href="http://en.wikipedia.org/wiki/TCP_and_UDP_port">port number</a> 3000<sup class="footnote" id="fnref-1_17"><a href="#fn-1_17">17</a></sup> en la dirección <code>0.0.0.0</code>. Esta dirección le dice a la computadora para escuchar en todas las direcciones IP disponibles configurada en ese equipo específico; en particular, se puede ver la aplicación utilizando la dirección especial <code>127.0.0.1</code>, que también se conoce como <code>localhost</code>. Podemos ver el resultado de la visita <a href="http://localhost:3000/">http://localhost:3000/</a>en <a class="ref" href="beginning.html#fig-riding_rails_31">Figure&nbsp;1.3</a>.</p>
+<p>(Si el sistema se queja de la falta de una JavaScript runtime, visite el <a href="https://github.com/sstephenson/execjs">execjs page at GitHub</a> para obtener una lista de posibilidades. Yo recomiendo instalar <a href="http://nodejs.org/">Node.js</a>.) Esto nos dice que la aplicación se está ejecutando en <a href="http://en.wikipedia.org/wiki/TCP_and_UDP_port">port number</a> 3000<sup class="footnote" id="fnref-1_17"><a href="#fn-1_17">17</a></sup> en la dirección <code>0.0.0.0</code>. Esta dirección le dice a la computadora para escuchar en todas las direcciones IP disponibles configurada en ese equipo específico; en particular, se puede ver la aplicación utilizando la dirección especial <code>127.0.0.1</code>, que también se conoce como <code>localhost</code>. Podemos ver el resultado visitando <a href="http://localhost:3000/">http://localhost:3000/</a>en <a class="ref" href="beginning.html#fig-riding_rails_31">Figure&nbsp;1.3</a>.</p>
 
 <div class="label" id="fig-riding_rails_31"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/riding_rails_31.png" alt="riding_rails_31" /></span></div><div class="caption"><span class="header">Figure 1.3: </span><span class="description">The default Rails page.&nbsp;<a href="http://railstutorial.org/images/figures/riding_rails_31-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/riding_rails_31.png" alt="riding_rails_31" /></span></div>
+<div class="caption"><span class="header">Figure 1.3: </span><span class="description">La página predeterminada para una applicación en Rails.&nbsp;<a href="http://railstutorial.org/images/figures/riding_rails_31-full.png">(tamaño completo)</a></span></div>
+</div>
 
 
-<p>To see information about our first application, click on the link &ldquo;About your application&rsquo;s environment&rdquo;. The result is shown in <a class="ref" href="beginning.html#fig-riding_rails_32_environment">Figure&nbsp;1.4</a>. (<a class="ref" href="beginning.html#fig-riding_rails_32_environment">Figure&nbsp;1.4</a> represents the environment on my machine when I made the screenshot; your results may differ.)</p>
+<p>Para ver información acerca de nuestra primera aplicación, haga clic en el enlace &ldquo;About your application&rsquo;s environment&rdquo;. El resultado se muestra en <a class="ref" href="beginning.html#fig-riding_rails_32_environment">Figure&nbsp;1.4</a>. (<a class="ref" href="beginning.html#fig-riding_rails_32_environment">Figure&nbsp;1.4</a> representa el ambiente en mi máquina cuando hice la captura de pantalla, los resultados pueden ser diferentes.)</p>
 
 <div class="label" id="fig-riding_rails_32_environment"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/riding_rails_32_environment.png" alt="riding_rails_32_environment" /></span></div><div class="caption"><span class="header">Figure 1.4: </span><span class="description">The default page with the app environment.&nbsp;<a href="http://railstutorial.org/images/figures/riding_rails_32_environment-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/riding_rails_32_environment.png" alt="riding_rails_32_environment" /></span></div>
+<div class="caption"><span class="header">Figure 1.4: </span><span class="description">La página predeterminada con el ambiente de la aplicación.&nbsp;<a href="http://railstutorial.org/images/figures/riding_rails_32_environment-full.png">(tamaño completo)</a></span></div>
+</div>
 
 
-<p>Of course, we don&rsquo;t need the default Rails page in the long run, but it&rsquo;s nice to see it working for now. We&rsquo;ll remove the default page (and replace it with a custom home page) in <a class="ref" href="filling-in-the-layout.html#sec-rails_routes">Sección&nbsp;5.3.2</a>.</p>
+<p>Por supuesto, no hace falta la página predeterminada de Rails en el largo plazo, pero es agradable ver que funcione por ahora. Vamos a eliminar la página predeterminada (y reemplazarla con una página de inicio personalizada) en <a class="ref" href="filling-in-the-layout.html#sec-rails_routes">Sección&nbsp;5.3.2</a>.</p>
 
 <div class="label" id="sec-mvc"></div>
 
 
-<h3><a id="sec-1_2_6" href="beginning.html#sec-mvc" class="heading"><span class="number">1.2.6</span> Model-view-controller (MVC)</a></h3>
+<h3><a id="sec-1_2_6" href="beginning.html#sec-mvc" class="heading"><span class="number">1.2.6</span> Modelo-vista-controlador (MVC)</a></h3>
 
 
-<p>Even at this early stage, it&rsquo;s helpful to get a high-level overview of how Rails applications work (<a class="ref" href="beginning.html#fig-MVC">Figure&nbsp;1.5</a>). You might have noticed that the standard Rails application structure (<a class="ref" href="beginning.html#fig-directory_structure_rails_3_2">Figure&nbsp;1.2</a>) has an application directory called <code>app/</code> with three subdirectories: <code>models</code>, <code>views</code>, and <code>controllers</code>. This is a hint that Rails follows the <a href="http://en.wikipedia.org/wiki/Model-view-controller">model-view-controller</a> (MVC) architectural pattern, which enforces a separation between &ldquo;domain logic&rdquo; (also called &ldquo;business logic&rdquo;) from the input and presentation logic associated with
-a graphical user interface (GUI). In the case of web applications, the &ldquo;domain logic&rdquo; typically consists of data models for things like users, articles, and products, and the GUI is just a web page in a web browser.</p>
+<p>Incluso en esta primera etapa, es útil para obtener una visión general de alto nivel de cómo funcionan las aplicaciones Rails (<a class="ref" href="beginning.html#fig-MVC">Figure&nbsp;1.5</a>). Usted puede haber notado que la estructura de la aplicación Rails standard (<a class="ref" href="beginning.html#fig-directory_structure_rails_3_2">Figure&nbsp;1.2</a>) tiene un directorio de la aplicación llamado <code>app/</code> con tres subdirectorios: <code>models</code>, <code>views</code>, and <code>controllers</code>. Esto es un indicio de que Rails sigue el patrón arcquitectónico <a href="http://en.wikipedia.org/wiki/Model-view-controller">modelo-vista-controlador</a> (MVC), que impone una separación entre la &quot;lógica de dominio&quot; (también llamada &quot;lógica de negocio&quot;) de la lógica de entrada y presentación asociada con una interfaz gráfica de usuario (GUI, Graphical User Interface). En el caso de las aplicaciones web, la &quot;lógica de dominio&quot; por lo general se compone de modelos de datos para cosas como los usuarios, artículos y productos, y la interfaz de usuario (GUI) es una página web en un navegador web</p>
 
-<p>When interacting with a Rails application, a browser sends a <em>request</em>, which is received by a web server and passed on to a Rails <em>controller</em>, which is in charge of what to do next. In some cases, the controller will immediately render a <em>view</em>, which is a template that gets converted to HTML and sent back to the browser. More commonly for dynamic sites, the controller interacts with a <em>model</em>, which is a Ruby object that represents an element of the site (such as a user) and is in charge of communicating with the database. After invoking the model, the controller then renders the view and returns the complete web page to the browser as HTML.</p>
+<p>Al interactuar con una aplicación de Rails, un navegador envía una <em>solicitud</em>, que es recibida por un servidor web y se transmite a un <em>controlador</em> de Rails, que está a cargo de qué hacer a continuación. En algunos casos, el controlador vas a crear inmediatamente una <em>vista</em>, que es una plantilla que es convertida a HTML y se envía de vuelta al navegador. Más comúnmente para sitios dinámicos, el controlador interactúa con un <em>modelo</em>, qué es un objeto Ruby que representa un elemento de la página (tales como un usuario) y está a cargo de la comunicación con la base de datos. Después de invocar el modelo, entonces el controlador vas a crear la vista y devuelve la página web completa para el navegador como HTML.</p>
 
 <div class="label" id="fig-MVC"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/mvc_schematic.png" alt="mvc_schematic" /></span></div><div class="caption"><span class="header">Figure 1.5: </span><span class="description">A schematic representation of the model-view-controller (MVC) architecture.</span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/mvc_schematic.png" alt="mvc_schematic" /></span></div>
+<div class="caption"><span class="header">Figure 1.5: </span><span class="description"><span id="result_box137" lang="es">Una representación esquemática de la arquitectura vista-controlador modelo</span> (MVC).</span></div>
+</div>
 
 
-<p>If this discussion seems a bit abstract right now, worry not; we&rsquo;ll refer back to this Sección frequently. In addition, <a class="ref" href="a-demo-app.html#sec-mvc_in_action">Sección&nbsp;2.2.2</a> has a more detailed discussion of MVC in the context of the demo app.  Finally, the sample app will use all aspects of MVC; we&rsquo;ll cover controllers and views starting in <a class="ref" href="static-pages.html#sec-static_pages_with_rails">Sección&nbsp;3.1.2</a>, models starting in <a class="ref" href="modeling-users.html#sec-user_model">Sección&nbsp;6.1</a>, and we&rsquo;ll see all three working together in <a class="ref" href="sign-up.html#sec-a_users_resource">Sección&nbsp;7.1.2</a>.</p>
+<p>Si esta discusión parece un poco abstracta en este momento, no te preocupes, vamos a referirnos de nuevo a esta sección con frecuencia. Además, <a class="ref" href="a-demo-app.html#sec-mvc_in_action">Sección&nbsp;2.2.2</a> tiene una discusión más detallada en el contexto en MVC de la aplicación de demostración.  Por último, la aplicación de ejemplo utilizará todos los aspectos de MVC; hablaremos de los controladores y vistas a partir de la <a class="ref" href="static-pages.html#sec-static_pages_with_rails">Sección&nbsp;3.1.2</a>, y para los modelos empiezermos a partir de la <a class="ref" href="modeling-users.html#sec-user_model">Sección&nbsp;6.1</a>, y vamos a ver los tres como trabajan juntos en la <a class="ref" href="sign-up.html#sec-a_users_resource">Sección&nbsp;7.1.2</a>.</p>
 
 <div class="label" id="sec-version_control"></div>
 
 
-<h2><a id="sec-1_3" href="beginning.html#sec-version_control" class="heading"><span class="number">1.3</span> Version control with Git</a></h2>
+<h2><a id="sec-1_3" href="beginning.html#sec-version_control" class="heading"><span class="number">1.3</span> El control de versiones con Git</a></h2>
 
 
-<p>Now that we have a fresh and working Rails application, we&rsquo;ll take a moment for a step that, while technically optional, would be viewed by many Rails developers as practically essential, namely, placing our application source code under <em>version control</em>. Version control systems allow us to track changes to our project&rsquo;s code, collaborate more easily, and roll back any inadvertent errors (such as accidentally deleting files). Knowing how to use a version control system is a required skill for every software developer.</p>
+<p>Ahora que tenemos una aplicación sensilla y que funciona de Rails, vamos a tomar un momento para dar un paso que, si bien técnicamente opcional, sería visto por muchos desarrolladores de Rails como sea esencial, es decir, colocar el código fuente de la aplicación bajo control de <em>versiones</em>. El sistemas de control de versiones nos permite entender los cambios en el código de nuestro proyecto, colaborar más fácilmente, y deshacer los errores involuntarios (como la eliminación accidental de archivos). Saber utilizar un sistema de control de versiones es una habilidad necesaria para todos los desarrolladores de software.</p>
 
-<p>There are many options for version control, but the Rails community has largely standardized on <a href="http://git-scm.com/">Git</a>, a distributed version control system originally developed by Linus Torvalds to host the Linux kernel. Git is a large subject, and we&rsquo;ll only be scratching the surface in this book, but there are many good free resources online; I especially recommend <a href="http://progit.org"><em>Pro Git</em></a> by Scott Chacon (Apress, 2009). Putting your source code under version control with Git is <em>strongly</em> recommended, not only because it&rsquo;s nearly a universal practice in the Rails world, but also because it will allow you to share your code more easily (<a class="ref" href="beginning.html#sec-github">Sección&nbsp;1.3.4</a>) and deploy your application
-right here in the first chapter (<a class="ref" href="beginning.html#sec-deploying">Sección&nbsp;1.4</a>).</p>
+<p>Hay muchas opciones para el control de versiones, pero la comunidad Rails usa como estandard en gran medida  en <a href="http://git-scm.com/">Git</a>, un sistema de control de versiones distribuido originalmente desarrollado por Linus Torvalds para albergar el kernel de Linux. Git es un tema muy amplio, y sólo estaremos arañando la superficie en este libro, pero hay muchos buenos recursos gratuitos en línea; I especially recommend <a href="http://progit.org"><em>Pro Git</em></a> de Scott Chacon (Apress, 2009). Poner su código fuente bajo control de versiones con Git es <em>fuertemente</em> recomendado,no sólo porque es casi una práctica universal en el mundo de Rails, sino también porque le permitirá compartir su código con mayor facilidad (<a class="ref" href="beginning.html#sec-github">Sección&nbsp;1.3.4</a>) e implementar la aplicación aquí en el primer capítulo (<a class="ref" href="beginning.html#sec-deploying">Sección&nbsp;1.4</a>).</p>
 
 <div class="label" id="sec-git_setup"></div>
 
 
-<h3><a id="sec-1_3_1" href="beginning.html#sec-git_setup" class="heading"><span class="number">1.3.1</span> Installation and setup</a></h3>
+<h3><a id="sec-1_3_1" href="beginning.html#sec-git_setup" class="heading"><span class="number">1.3.1</span> Instalación y configuración</a></h3>
 
 
-<p>The first step is to install Git if you haven&rsquo;t yet followed the steps in <a class="ref" href="beginning.html#sec-install_git">Sección&nbsp;1.2.2.2</a>. (As noted in that Sección, this involves following the instructions in the <a href="http://progit.org/book/ch1-4.html">Installing Git Sección of <em>Pro Git</em></a>.)</p>
+<p>El primer paso es instalar Git si usted todavía no ha seguido los pasos de la <a class="ref" href="beginning.html#sec-install_git">Sección&nbsp;1.2.2.2</a>. (Como se señala en esta Sección, seguir las instrucciones en la <a href="http://progit.org/book/ch1-4.html">Installing Git Section of <em>Pro Git</em></a>.)</p>
 
-<h4><a id="sec-1_3_1_1" href="beginning.html#sec-1_3_1_1" class="heading">First-time system setup</a></h4>
+<h4><a id="sec-1_3_1_1" href="beginning.html#sec-1_3_1_1" class="heading">Configuración del sistema por primera vez</a></h4>
 
 
-<p>After installing Git, you should perform a set of one-time setup steps. These are <em>system</em> setups, meaning you only have to do them once per computer:</p>
+<p>Déspues instalar Git, debe realizar una serie de pasos de configuración  una sola vez. Estas son las configuraciones del <em>sistema</em>, significa que tiene que hacer esto sólo una vez por cada equipo:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
 <span class="gp">$</span> git config --global user.email your.email@example.com
@@ -1054,28 +1058,28 @@ right here in the first chapter (<a class="ref" href="beginning.html#sec-deployi
 </div>
 
 
-<p>I also like to use <code>co</code> in place of the more verbose <code>checkout</code> command, which we can arrange as follows:</p>
+<p>También me gusta usar <code>co</code> en lugar de la más detallado comando <code>checkout</code>, que podemos organizar así como sigue:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git config --global alias.co checkout
 </pre></div>
 </div>
 
 
-<p>This tutorial will usually use the full <code>checkout</code> command, which works for systems that don&rsquo;t have <code>co</code> configured, but in real life I nearly always use <code>git co</code>.</p>
+<p>En este tutorial se suele utilizar todo el comando <code>checkout</code>, que trabaja para los sistemas que no tienen configurado <code>co</code>, pero en la vida real, casi siempre uso <code>git co</code>.</p>
 
-<p>As a final setup step, you can optionally set the editor Git will use for commit messages. If you use a graphical editor such as Sublime Text, TextMate, gVim, or MacVim, you need to use a flag to make sure that the editor stays attached to the shell instead of detaching immediately:<sup class="footnote" id="fnref-1_18"><a href="#fn-1_18">18</a></sup></p>
+<p>Como paso final de la instalación, puede configurar opcionalmente el editor Git se va a usar para los mensajes commit. Si utiliza un editor gráfico como Sublime Text, TextMate, gVim, o MacVim, es necesario utilizar un flag para asegurarse de que el editor se mantiene unido a la shell en lugar de estar separado:<sup class="footnote" id="fnref-1_18"><a href="#fn-1_18">18</a></sup></p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git config --global core.editor <span class="s2">&quot;subl -w&quot;</span>
 </pre></div>
 </div>
 
 
-<p>Replace <code>"subl -w"</code> with <code>"mate -w"</code> for TextMate, <code>"gvim -f"</code> for gVim, or <code>"mvim -f"</code> for MacVim.</p>
+<p>Reemplaza <code>"subl -w"</code>con<code>"mate -w"</code> por TextMate, <code>"gvim -f"</code> por gVim, o <code>"mvim -f"</code> por MacVim.</p>
 
-<h4><a id="sec-1_3_1_2" href="beginning.html#sec-1_3_1_2" class="heading">First-time repository setup</a></h4>
+<h4><a id="sec-1_3_1_2" href="beginning.html#sec-1_3_1_2" class="heading">Configuración del primero repository</a></h4>
 
 
-<p>Now we come to some steps that are necessary each time you create a new <em>repository</em>. First navigate to the root directory of the first app and initialize a new repository:</p>
+<p>Ahora llegamos a algunos pasos que son necesarios cada vez que se crea un nuevo <em>repository</em>. Primero vaya al directorio raíz de la primera aplicación e iniciar un nuevo repository:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git init
 <span class="go">Initialized empty Git repository in /Users/mhartl/rails_projects/first_app/.git/</span>
@@ -1083,15 +1087,15 @@ right here in the first chapter (<a class="ref" href="beginning.html#sec-deployi
 </div>
 
 
-<p>The next step is to add the project files to the repository. There&rsquo;s a minor complication, though: by default Git tracks the changes of <em>all</em> the files, but there are some files we don&rsquo;t want to track. For example, Rails creates log files to record the behavior of the application; these files change frequently, and we don&rsquo;t want our version control system to have to update them constantly. Git has a simple mechanism to ignore such files: simply include a file called <code>.gitignore</code> in the application root directory with some rules telling Git which files to ignore.<sup class="footnote" id="fnref-1_19"><a href="#fn-1_19">19</a></sup></p>
+<p>El siguiente paso es añadir los archivos de proyecto en el repository. Hay una complicación menor, sin embargo: Git en manera predeterminada rastrea  los cambios de todos los archivos, pero hay algunos archivos que no queremos rastrear. Por ejemplo, Rails crea el archivo log para registrar el comportamiento de la aplicación; Estos archivos cambian con frecuencia, y no queremos que nuestro sistema de control de versiones se tiene que actualizarlas constantemente. Git tiene un mecanismo simple para ignorar los archivos ya disponibles: basta incluir un archivo llamado<code>.gitignore</code> en el directorio raíz de la aplicación ponendos algunas reglas decimos a Git que algunos archivos se deben ignorar.<sup class="footnote" id="fnref-1_19"><a href="#fn-1_19">19</a></sup></p>
 
-<p>Looking again at <a class="ref" href="beginning.html#table-rails_directory_structure">Table&nbsp;1.1</a>, we see that the <code>rails</code> command creates a default <code>.gitignore</code> file in the application root directory, as shown in <a class="ref" href="beginning.html#code-default_gitignore">Listing&nbsp;1.6</a>.</p>
+<p>Mirando otra vez la <a class="ref" href="beginning.html#table-rails_directory_structure">Table&nbsp;1.1</a>, vemos que el comando <code>rails</code> crea en manera predetermianda el archivo<code>.gitignore</code> en el directorio raíz de la aplicación, como se muestra en <a class="ref" href="beginning.html#code-default_gitignore">Listing&nbsp;1.6</a>.</p>
 
 <div class="label" id="code-default_gitignore"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.6.</span> <span class="description">The default <code>.gitignore</code> created by the <code>rails</code> command.</span> </div>
+<div class="listing"><span class="header">Listing 1.6.</span> <span class="description">El archivo<code>.gitignore</code> creado dal comando <code>rails</code>.</span> </div>
 <div class="code"><div class="highlight"><pre># See http://help.github.com/ignore-files/ for more about ignoring files.
 #
 # If you find yourself ignoring temporary files generated by your text editor
@@ -1111,15 +1115,15 @@ right here in the first chapter (<a class="ref" href="beginning.html#sec-deployi
 </div></div>
 
 
-<p><a class="ref" href="beginning.html#code-default_gitignore">Listing&nbsp;1.6</a> causes Git to ignore files such as log files, Rails temporary (<code>tmp</code>) files, and SQLite databases. (For example, to ignore log files, which live in the <code>log/</code> directory, we use <code>log/*.log</code> to ignore all files that end in <code>.log</code>.) Most of these ignored files change frequently and automatically, so including them under version control is inconvenient; moreover, when collaborating with others they can cause frustrating and irrelevant conflicts.</p>
+<p>El <a class="ref" href="beginning.html#code-default_gitignore">Listing&nbsp;1.6</a> <span id="result_box138" lang="es">dice a  Git que ignore los archivos: como los archivos de registro (log file), archivos temporales</span> de Rails (<code>tmp</code>), y la base de datos de SQLite. (Por ejemplo, para ignorar los archivos de registro, que viven en el directorio <code>log/</code>, utilizando <code>log/*.log</code> vamos a ignorar todos los archivos finales en <code>.log</code>.) La mayoría de estos archivos ignorados cambian con frecuencia y de forma automática, por lo que su inclusión bajo control de versiones es un inconveniente; Por otra parte, pueden causar conflictos frustrantes cuando se trabaja en colaboración con otros.</p>
 
-<p>The <code>.gitignore</code> file in <a class="ref" href="beginning.html#code-default_gitignore">Listing&nbsp;1.6</a> is probably sufficient for this tutorial, but depending on your system you may find <a class="ref" href="beginning.html#code-gitignore">Listing&nbsp;1.7</a> more convenient. This augmented <code>.gitignore</code> arranges to ignore Rails documentation files, Vim and Emacs swap files, and (for OS&nbsp;X users) the weird <code>.DS_Store</code> directories created by the Mac Finder application. If you want to use this broader set of ignored files, open up <code>.gitignore</code> in your favorite text editor and fill it with the contents of <a class="ref" href="beginning.html#code-gitignore">Listing&nbsp;1.7</a>.</p>
+<p>El archivo<code>.gitignore</code> en <a class="ref" href="beginning.html#code-default_gitignore">Listing&nbsp;1.6</a> es probablemente suficiente para este tutorial, pero dependiendo del sistema que se encuentra  el <a class="ref" href="beginning.html#code-gitignore">Listing&nbsp;1.7</a> parece más conveniente. Este particular archivo de<code>.gitignore</code> sirve por ignorar archivos de documentación de Rails, Vim y Emacs archivos swap, y (para usuarios de OS X) el extraño directorio<code>.DS_Store</code> creado da la aplicación Mac Finder. Si desea utilizar esta lista más amplia de archivos ignorados, abre <code>.gitignore</code> en su editor de texto favorito y rellenalo con el contenido de <a class="ref" href="beginning.html#code-gitignore">Listing&nbsp;1.7</a>.</p>
 
 <div class="label" id="code-gitignore"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.7.</span> <span class="description">An augmented <code>.gitignore</code> file.</span> </div>
+<div class="listing"><span class="header">Listing 1.7.</span> <span class="description">Un particular archivo de <code>.gitignore</code>.</span> </div>
 <div class="code"><div class="highlight"><pre># Ignore bundler config
 /.bundle
 
@@ -1146,17 +1150,17 @@ doc/
 <div class="label" id="sec-adding_and_committing"></div>
 
 
-<h3><a id="sec-1_3_2" href="beginning.html#sec-adding_and_committing" class="heading"><span class="number">1.3.2</span> Adding and committing</a></h3>
+<h3><a id="sec-1_3_2" href="beginning.html#sec-adding_and_committing" class="heading"><span class="number">1.3.2</span> Adición y committing</a></h3>
 
 
-<p>Finally, we&rsquo;ll add the files in your new Rails project to Git and then commit the results. You can add all the files (apart from those that match the ignore patterns in <code>.gitignore</code>) as follows:</p>
+<p>Por último, vamos a añadir los archivos del nuevo proyecto de Rails a Git y luego commit los resultados. Puede agregar todos los archivos (excepto los que coinciden con los patrones de exclusión en <code>.gitignore</code>) así como sigue:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git add .
 </pre></div>
 </div>
 
 
-<p>Here the dot &lsquo;<code>.</code>&rsquo; represents the current directory, and Git is smart enough to add the files <em>recursively</em>, so it automatically includes all the subdirectories. This command adds the project files to a <em>staging area</em>, which contains pending changes to your project; you can see which files are in the staging area using the <code>status</code> command:<sup class="footnote" id="fnref-1_20"><a href="#fn-1_20">20</a></sup></p>
+<p>Aquí el punto &lsquo;<code>.</code>&rsquo; representa el directorio actual, y Git es suficientemente inteligente como para agregar los archivos de forma  <em>recursiva</em>,  incluyendo automáticamente todos los subdirectorios. Este comando agrega los archivos de proyecto en una <em>staging area</em>, que contiene los cambios pendientes a su proyecto, usted puede ver los archivos que se encuentran en la staging area  utilizando el comando <code>status</code>:<sup class="footnote" id="fnref-1_20"><a href="#fn-1_20">20</a></sup></p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git status
 <span class="gp">#</span> On branch master
@@ -1175,9 +1179,9 @@ doc/
 </div>
 
 
-<p>(The results are long, so I&rsquo;ve used vertical dots to indicate omitted output.)</p>
+<p>(Los resultados son muchos, así que he usado puntos verticales para indicar la parte omitida.)</p>
 
-<p>To tell Git you want to keep the changes, use the <code>commit</code> command:</p>
+<p>Para  decir a Git que desea mantener los cambios, utilice el comando <code>commit</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git commit -m <span class="s2">&quot;Initial commit&quot;</span>
 <span class="go">[master (root-commit) df0a62f] Initial commit</span>
@@ -1191,11 +1195,11 @@ doc/
 </div>
 
 
-<p>The <code>-m</code> flag lets you add a message for the commit; if you omit <code>-m</code>, Git will open the editor you set in <a class="ref" href="beginning.html#sec-git_setup">Sección&nbsp;1.3.1</a> and have you enter the message there.</p>
+<p>el flag <code>-m</code> permite agregar un mensaje por el commit; si omite el flag <code>-m</code>, Git abre el editor de texto que ya se establecío en la <a class="ref" href="beginning.html#sec-git_setup">Sección&nbsp;1.3.1</a> y vas a ingresar tu mensaje ahí.</p>
 
-<p>It is important to note that Git commits are <em>local</em>, recorded only on the machine on which the commits occur. This is in contrast to the popular open-source version control system called Subversion, in which a commit necessarily makes changes on a remote repository. Git divides a Subversion-style commit into its two logical pieces: a local recording of the changes (<code>git commit</code>) and a push of the changes up to a remote repository (<code>git push</code>). We&rsquo;ll see an example of the push step in <a class="ref" href="beginning.html#sec-git_commands">Sección&nbsp;1.3.5</a>.</p>
+<p>Es importante señalar que Git hace el commit en locales, grabado únicamente en la máquina en la que se compromete el lugar. Esto es en contraste con el popular sistema de código abierto versión de control llamada Subversión, donde el commit con los cambios es necesariamente hace repository remoto. Git es diferente desde el estilo de Subversion porque los commit tengon dos pedazo logicos: una grabación local de los cambios (<code>git commit</code>) y un push de los cambios a un repository remoto (<code>git push</code>). Vamos a ver un ejemplo de la etapa push en la <a class="ref" href="beginning.html#sec-git_commands">Sección&nbsp;1.3.5</a>.</p>
 
-<p>By the way, you can see a list of your commit messages using the <code>log</code> command:</p>
+<p>Por cierto, se puede ver una lista de los mensajes de commit con el comando <code>log</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git log
 <span class="go">commit df0a62f3f091e53ffa799309b3e32c27b0b38eb4</span>
@@ -1207,7 +1211,7 @@ doc/
 </div>
 
 
-<p>To exit <code>git log</code>, you may have to type <code>q</code> to quit.</p>
+<p>Para salir de  <code>git log</code>, es posible que tenga que escribir <code>q</code> (quit en inglés).</p>
 
 <h3><a id="sec-1_3_3" href="beginning.html#sec-1_3_3" class="heading"><span class="number">1.3.3</span> What good does Git do you?</a></h3>
 
