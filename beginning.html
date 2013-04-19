@@ -1213,10 +1213,10 @@ doc/
 
 <p>Para salir de  <code>git log</code>, es posible que tenga que escribir <code>q</code> (quit en inglés).</p>
 
-<h3><a id="sec-1_3_3" href="beginning.html#sec-1_3_3" class="heading"><span class="number">1.3.3</span> What good does Git do you?</a></h3>
+<h3><a id="sec-1_3_3" href="beginning.html#sec-1_3_3" class="heading"><span class="number">1.3.3</span> A qué sirve realmente Git?</a></h3>
 
 
-<p>It&rsquo;s probably not entirely clear at this point why putting your source under version control does you any good, so let me give just one example. (We&rsquo;ll see many others in the chapters ahead.) Suppose you&rsquo;ve made some accidental changes, such as (D&rsquo;oh!) deleting the critical <code>app/controllers/</code> directory:</p>
+<p>Probablemente no es del todo claro en este punto por qué poner en el lugar bajo control de versiones lo que hace, así que te voy a dar un ejemplo. (Vamos a veer  muchos otros en los próximos capítulos.) Supongamos que usted ha hecho algunos cambios accidentales, tales como (D'oh!) suprimiendo el directorio crítico <code>app/controllers/</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> ls app/controllers/
 <span class="go">application_controller.rb</span>
@@ -1227,9 +1227,9 @@ doc/
 </div>
 
 
-<p>Here we&rsquo;re using the Unix <code>ls</code> command to list the contents of the <code>app/controllers/</code> directory and the <code>rm</code> command to remove it. The <code>-rf</code> flag means &ldquo;recursive force&rdquo;, which recursively removes all files, directories, subdirectories, and so on, without asking for explicit confirmation of each deletion.</p>
+<p>Aquí estamos utilizando el comando Unix <code>ls</code>  para mostrar el contenido del directorio <code>app/controllers/</code>y del comando <code>rm</code> removerlo. El flag <code>-rf</code> significa "fuerza recursiva", que elimina de forma recursiva todos los archivos, directorios, subdirectorios, y así sucesivamente, sin pedir la confirmación explícita de cada eliminación.</p>
 
-<p>Let&rsquo;s check the status to see what&rsquo;s up:</p>
+<p>Vamos a comprobarlo chequando el estado de la copia en Git:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git status
 <span class="gp">#</span> On branch master
@@ -1244,7 +1244,7 @@ doc/
 </div>
 
 
-<p>We see here that a file has been deleted, but the changes are only on the &ldquo;working tree&rdquo;; they haven&rsquo;t been committed yet. This means we can still undo the changes easily by having Git check out the previous commit with the <code>checkout</code> command (and a <code>-f</code> flag to force overwriting the current changes):</p>
+<p><span id="result_box139" lang="es">Vemos aquí que un archivo ha sido eliminado, pero los cambios son sólo en el "árbol de trabajo", ya que no se han comprometido aún. Esto significa que todavía podemos deshacer los cambios con facilidad por  Git regresando al anterior commit con el comando </span><code>checkout</code> (y a flag <code>-f</code> <span id="result_box140" lang="es">para obligar a sobrescribir los cambios actuales</span>):</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git checkout -f
 <span class="gp">$</span> git status
@@ -1256,7 +1256,7 @@ doc/
 </div>
 
 
-<p>The missing directory and file are back. That&rsquo;s a relief!</p>
+<p><span id="result_box141" lang="es">El directorio que falta y archivo están de vuelta. Eso es un alivio</span>!</p>
 
 <div class="label" id="sec-github"></div>
 
@@ -1264,15 +1264,16 @@ doc/
 <h3><a id="sec-1_3_4" href="beginning.html#sec-github" class="heading"><span class="number">1.3.4</span> GitHub</a></h3>
 
 
-<p>Now that you&rsquo;ve put your project under version control with Git, it&rsquo;s time to push your code up to <a href="http://github.com">GitHub</a>, a social code site optimized for hosting and sharing Git repositories. Putting a copy of your Git repository at GitHub serves two purposes: it&rsquo;s a full backup of your code (including the full history of commits), and it makes any future collaboration much easier. This step is optional, but being a GitHub member will open the door to participating in a wide variety of open-source projects.</p>
+<p>Ahora que usted ha pones tu proyecto bajo control de versión con Git, es el momento para empujar a su código en <a href="http://github.com">GitHub</a>, un sitio de código social optimizada para alojar y compartir repositorios Git. Poner una copia del repositorio Git en GitHub tiene dos propósitos: que es una copia de seguridad completa de su código (incluyendo el historial completo de commit), y hace que cualquier futura colaboración mucho más fácil. Este paso es opcional, pero al ser un miembro de GitHub se abrirá la puerta a participar en una amplia variedad de proyectos de código abierto.</p>
 
 <div class="label" id="fig-create_first_repository"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/create_first_repository_new.png" alt="create_first_repository_new" /></span></div><div class="caption"><span class="header">Figure 1.6: </span><span class="description">Creating the first app repository at GitHub.&nbsp;<a href="http://railstutorial.org/images/figures/create_first_repository_new-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/create_first_repository_new.png" alt="create_first_repository_new" /></span></div><div class="caption"><span class="header">Figure 1.6: </span><span class="description">Creación de la primera aplicación en el repositorio de GitHub.&nbsp;<a href="http://railstutorial.org/images/figures/create_first_repository_new-full.png">(full size)</a></span></div>
+</div>
 
 
-<p>GitHub has a variety of paid plans, but for open-source code their services are free, so sign up for a <a href="https://github.com/signup/free">free GitHub account</a> if you don&rsquo;t have one already. (You might have to follow the <a href="http://help.github.com/key-setup-redirect">GitHub tutorial on creating SSH keys</a> first.) After signing up, click on the link to <a href="http://github.com/new">create a repository</a> and fill in the information as in <a class="ref" href="beginning.html#fig-create_first_repository">Figure&nbsp;1.6</a>. (Take care <em>not</em> to initialize the repository with a <code>README</code> file, as <code>rails new</code> creates one of those automatically.) After submitting the form, push up your first application as follows:</p>
+<p>GitHub tiene una variedad de planes de pago, pero para el código de fuente abierta sus servicios son gratuitos, <span id="result_box142" lang="es">luego inscribirse</span> con un <a href="https://github.com/signup/free">free GitHub account</a> si usted no tiene uno ya. (Puede que tenga que seguir primero el <a href="http://help.github.com/key-setup-redirect">GitHub tutorial on creating SSH keys</a>.) Después de inscribirse, haga clic en el vínculo para <a href="http://github.com/new">create a repository</a> y complete la información como en <a class="ref" href="beginning.html#fig-create_first_repository">Figure&nbsp;1.6</a>. (Tenga cuidado de <em>no</em>  el repositorio con un archivo <code>README</code>, el comando <code>rails new</code> lo crea automaticamente.) Después de enviar el formulario, empuje hacia arriba la primera aplicación de la siguiente:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git remote add origin git@github.com:&lt;username&gt;/first_app.git
 <span class="gp">$</span> git push -u origin master
@@ -1280,22 +1281,24 @@ doc/
 </div>
 
 
-<p>These commands tell Git that you want to add GitHub as the origin for your main (<em>master</em>) branch and then push your repository up to GitHub. (Don&rsquo;t worry about what the <tt>-u</tt> flag does; if you&rsquo;re curious, do a web search for &ldquo;git set upstream&rdquo;.) Of course, you should replace <tt class="verb">&lt;username&gt;</tt> with your actual username. For example, the command I ran for the <code>railstutorial</code> user was</p>
+<p>Estos comandos indican Git que desea agregar GitHub como el origen de su principal (<em>master</em>) branch y luego haga su repositorio a GitHub. (No te preocupes por lo que el flag <tt>-u</tt> hace; si tienes curiosidad, hace una búsqueda en Internet para &ldquo;git set upstream&rdquo;.) Por supuesto, se debe reemplazar <tt class="verb">&lt;username&gt;</tt> con el tuyo. Por ejemplo, el comando que se ejecutó para el usuario <code>railstutorial</code> era</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git remote add origin git@github.com:railstutorial/first_app.git
 </pre></div>
 </div>
 
 
-<p>The result is a page at GitHub for the first application repository, with file browsing, full commit history, and lots of other goodies (<a class="ref" href="beginning.html#fig-github_repository_page">Figure&nbsp;1.7</a>).</p>
+<p>El resultado es una página en GitHub para el primer repositorio de aplicaciones, con la exploración de archivos, historia completa de los commit, y un montón de otras cosas  (<a class="ref" href="beginning.html#fig-github_repository_page">Figure&nbsp;1.7</a>).</p>
 
 <div class="label" id="fig-github_repository_page"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/github_repository_page.png" alt="github_repository_page" /></span></div><div class="caption"><span class="header">Figure 1.7: </span><span class="description">A GitHub repository page.&nbsp;<a href="http://railstutorial.org/images/figures/github_repository_page-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/github_repository_page.png" alt="github_repository_page" /></span></div>
+<div class="caption"><span class="header">Figure 1.7: </span><span class="description">Una página repositorio de GitHub.&nbsp;<a href="http://railstutorial.org/images/figures/github_repository_page-full.png">(full size)</a></span></div>
+</div>
 
 
-<p>GitHub also has native applications to augment the command-line interface, so if you&rsquo;re more comfortable with GUI apps you might want to check out <a href="http://windows.github.com/">GitHub for Windows</a> or <a href="http://mac.github.com/">GitHub for Mac</a>. (GitHub for Linux is still just Git, it seems.)</p>
+<p>GitHub también tiene aplicaciones nativas para aumentar la interfaz de línea de comandos, por lo que si usted está más cómodo con aplicaciones GUI es posible que desee comprobar  <a href="http://windows.github.com/">GitHub for Windows</a> o <a href="http://mac.github.com/">GitHub for Mac</a>. (GitHub por Linux está siendo sólo Git, como parece.)</p>
 
 <div class="label" id="sec-git_commands"></div>
 
@@ -1303,13 +1306,14 @@ doc/
 <h3><a id="sec-1_3_5" href="beginning.html#sec-git_commands" class="heading"><span class="number">1.3.5</span> Branch, edit, commit, merge</a></h3>
 
 
-<p>If you&rsquo;ve followed the steps in <a class="ref" href="beginning.html#sec-github">Sección&nbsp;1.3.4</a>, you might notice that GitHub automatically shows the contents of the <code>README</code> file on the main repository page. In our case, since the project is a Rails application generated using the <code>rails</code> command, the <code>README</code> file is the one that comes with Rails (<a class="ref" href="beginning.html#fig-rails_readme">Figure&nbsp;1.8</a>). Because of the <code>.rdoc</code> extension on the file, GitHub ensures that it is formatted nicely, but the contents aren&rsquo;t helpful at all, so in this Sección we&rsquo;ll make our first edit by changing the <code>README</code> to describe our project rather than the Rails framework itself. In the process, we&rsquo;ll
-see a first example of the branch, edit, commit, merge workflow that I recommend using with Git.</p>
+<p>Si has seguido los pasos de la <a class="ref" href="beginning.html#sec-github">Sección&nbsp;1.3.4</a>, usted podría notar que GitHub muestra automáticamente el contenido de los archivos <code>README</code> en la página principal repositorio. En nuestro caso, ya que el proyecto es una aplicación Rails generado mediante el comando <code>rails</code>, el archivo <code>README</code> es el que viene con Rails (<a class="ref" href="beginning.html#fig-rails_readme">Figure&nbsp;1.8</a>). Porqué la extension de los archivo <code>.rdoc</code> , GitHub asegura que está formateado muy bien, pero el contenido no es útil en absoluto, por lo que en este sección haremos nuestra primera edición, cambiando el <code>README</code> para describir nuestro proyecto en lugar del framework de Rails en sí. En el proceso, vamos a ver un primer ejemplo de  branch, edit, commit, merge flujo de trabajo que le recomiendo usar con Git.</p>
 
 <div class="label" id="fig-rails_readme"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/rails_readme_3_2.png" alt="rails_readme_3_2" /></span></div><div class="caption"><span class="header">Figure 1.8: </span><span class="description">The initial (rather useless) <code>README</code> file for our project at GitHub.&nbsp;<a href="http://railstutorial.org/images/figures/rails_readme_3_2-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/rails_readme_3_2.png" alt="rails_readme_3_2" /></span></div>
+<div class="caption"><span class="header">Figure 1.8: </span><span class="description">El inicial (bastante inútil) archivo <code>README</code>  por el nuestro proyecto en GitHub.&nbsp;<a href="http://railstutorial.org/images/figures/rails_readme_3_2-full.png">(full size)</a></span></div>
+</div>
 
 
 
@@ -1320,7 +1324,7 @@ see a first example of the branch, edit, commit, merge workflow that I recommend
 <h4><a id="sec-1_3_5_1" href="beginning.html#sec-git_branch" class="heading">Branch</a></h4>
 
 
-<p>Git is incredibly good at making <em>branches</em>, which are effectively copies of a repository where we can make (possibly experimental) changes without modifying the parent files. In most cases, the parent repository is the <em>master</em> branch, and we can create a new topic branch by using <code>checkout</code> with the <code>-b</code> flag:</p>
+<p>Git es muy bueno para hacer <em>branches</em>, que son efectivamente copias de un repositorio en el que podemos hacer (posiblemente experimental) los cambios sin modificar el archivo principal. En la mayoría de los casos, el repositorio padre es el <em>master</em> branch, y podemos crear un nuevo tema branch utilizando <code>checkout</code> con el flag <code>-b</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git checkout -b modify-README
 <span class="go">Switched to a new branch &#39;modify-README&#39;</span>
@@ -1331,11 +1335,11 @@ see a first example of the branch, edit, commit, merge workflow that I recommend
 </div>
 
 
-<p>Here the second command, <code>git branch</code>, just lists all the local branches, and the asterisk&nbsp;<code>*</code> identifies which branch we&rsquo;re currently on. Note that <code>git checkout -b modify-README</code> both creates a new branch and switches to it, as indicated by the asterisk in front of the <code>modify-README</code> branch. (If you set up the <code>co</code> alias in <a class="ref" href="beginning.html#sec-version_control">Sección&nbsp;1.3</a>, you can use <code>git co -b modify-README</code> instead.)</p>
+<p>Aquí tenemos el segundo comando, <code>git branch</code>, simplemente muestra todos los branch locales, y el asterisco&nbsp;<code>*</code> Identifica qué rama Actualmente estamos en. Tenga en cuenta que <code>git checkout -b modify-README</code> tanto crea un nuevo branch y pasa en el, según lo indicado por el asterisco en frente del branch <code>modify-README</code>. (Si se configura el <code>co</code> alias como indicado el la <a class="ref" href="beginning.html#sec-version_control">Sección&nbsp;1.3</a>, puede usar el comando <code>git co -b modify-README</code>.)</p>
 
-<p>The full value of branching only becomes clear when working on a project with multiple developers,<sup class="footnote" id="fnref-1_21"><a href="#fn-1_21">21</a></sup> but branches are helpful even for a single-developer tutorial such as this one. In particular, the master branch is insulated from any changes we make to the topic branch, so even if we <em>really</em> screw things up we can always abandon the changes by checking out the master branch and deleting the topic branch. We&rsquo;ll see how to do this at the end of the Sección.</p>
+<p>El valor total de los branch sólo se hace evidente cuando se trabaja en un proyecto con varios desarrolladores,<sup class="footnote" id="fnref-1_21"><a href="#fn-1_21">21</a></sup> pero los branch son útiles incluso para un tutorial de un solo desarrollador como este. En particular, el master branch está aislado de cualquier cambio que hagamos a el topic branch, por lo que incluso  <em>realmente</em> <span id="result_box143" lang="es">arruinar</span>  siempre podemos abandonar los cambios tomando el master branch  y eliminando el topic branch. Veremos cómo hacer esto al final de la sección.</p>
 
-<p>By the way, for a change as small as this one I wouldn&rsquo;t normally bother with a new branch, but it&rsquo;s never too early to start practicing good habits.</p>
+<p>Por cierto, para un cambio tan pequeño como éste no me molestaría normalmente con un nuevo branch, pero nunca es demasiado pronto para empezar a practicar buenos hábitos.</p>
 
 <div class="label" id="sec-git_edit"></div>
 
@@ -1343,7 +1347,7 @@ see a first example of the branch, edit, commit, merge workflow that I recommend
 <h4><a id="sec-1_3_5_2" href="beginning.html#sec-git_edit" class="heading">Edit</a></h4>
 
 
-<p>After creating the topic branch, we&rsquo;ll edit it to make it a little more descriptive. I prefer the <a href="http://daringfireball.net/projects/markdown/">Markdown markup language</a> to the default RDoc for this purpose, and if you use the file extension <code>.md</code> then GitHub will automatically format it nicely for you. So, first we&rsquo;ll use Git&rsquo;s version of the Unix <code>mv</code> (&ldquo;move&rdquo;) command to change the name, and then fill it in with the contents of <a class="ref" href="beginning.html#code-new_readme">Listing&nbsp;1.8</a>:</p>
+<p>Déspues crear eltopic branch, dovremo modificarlo per renderlo un po 'più descrittivo. <span id="result_box144" lang="es">Yo prefiero el</span> <a href="http://daringfireball.net/projects/markdown/">Markdown markup language</a> al predeterminado RDoc por este propósito, y si se utiliza la extensión de archivo <code>.md</code> entonces GitHub automáticamente se formatearlo muy bien para usted. Así, en primer lugar vamos a utilizar la versión de Git del comando Unix <code>mv</code> (&ldquo;move&rdquo;) para cambiar el nombre, y luego rellenarlo con el contenido de <a class="ref" href="beginning.html#code-new_readme">Listing&nbsp;1.8</a>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git mv README.rdoc README.md
 <span class="gp">$</span> subl README.md
@@ -1355,7 +1359,7 @@ see a first example of the branch, edit, commit, merge workflow that I recommend
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.8.</span> <span class="description">The new <code>README</code> file, <code>README.md</code>.</span> </div>
+<div class="listing"><span class="header">Listing 1.8.</span> <span class="description">El nuevo archivo <code>README</code>, <code>README.md</code>.</span> </div>
 <div class="code"><div class="highlight"><pre># Ruby on Tutorial de Rails: first application
 
 This is the first application for
@@ -1373,7 +1377,7 @@ by [Michael Hartl](http://michaelhartl.com/).
 <h4><a id="sec-1_3_5_3" href="beginning.html#sec-git_commit" class="heading">Commit</a></h4>
 
 
-<p>With the changes made, we can take a look at the status of our branch:</p>
+<p>Con los cambios realizados, podemos echar un vistazo a los status del nuestro branch:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git status
 <span class="gp">#</span> On branch modify-README
@@ -1392,7 +1396,7 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<p>At this point, we could use <code>git add .</code> as in <a class="ref" href="beginning.html#sec-adding_and_committing">Sección&nbsp;1.3.2</a>, but Git provides the <code>-a</code> flag as a shortcut for the (very common) case of committing all modifications to existing files (or files created using <code>git mv</code>, which don&rsquo;t count as new files to Git):</p>
+<p>En este punto, podríamos utilizar <code>git add .</code> como en la <a class="ref" href="beginning.html#sec-adding_and_committing">Sección&nbsp;1.3.2</a>, pero Git ofrece el flag <code>-a</code>  como un acceso directo para el (muy comunes) caso de commiting todas las modificaciones a los archivos existentes (o los archivos creados utilizando <code>git mv</code>, que no cuentan como nuevos archivos Git):</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git commit -a -m <span class="s2">&quot;Improve the README file&quot;</span>
 <span class="go">2 files changed, 5 insertions(+), 243 deletions(-)</span>
@@ -1402,9 +1406,9 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<p>Be careful about using the <code>-a</code> flag improperly; if you have added any new files to the project since the last commit, you still have to tell Git about them using <code>git add</code> first.</p>
+<p>Tenga cuidado cuando utilice el flag  <code>-a</code> incorrectamente; si ha añadido nuevos archivos en el proyecto desde el ultimo commit, usted todavía tiene que decirlo a Git utilizando primero <code>git add</code>.</p>
 
-<p>Note that we write the commit message in the <em>present</em> tense. Git models commits as a series of patches, and in this context it makes sense to describe what each commit <em>does</em>, rather than what it did. Moreover, this usage matches up with the commit messages generated by Git commands themselves. See the GitHub post <a href="https://github.com/blog/926-shiny-new-commit-styles">Shiny new commit styles</a> for more information.</p>
+<p>Tenga en cuenta que nosotros escribimos el mensaje de confirmación en tiempo <em>presente</em>.  Git hace los commit como una serie de parches, y en este contexto, tiene sentido para describir la función de cada commit, en lugar de lo que <em>hace</em>, en lugar de lo que hizo. Por otra parte, este uso coincide con los mensajes de commit generados por comandos de Git mismos. Veer el poste de GitHub <a href="https://github.com/blog/926-shiny-new-commit-styles">Shiny new commit styles</a> para más información.</p>
 
 <div class="label" id="sec-git_merge"></div>
 
@@ -1412,7 +1416,7 @@ by [Michael Hartl](http://michaelhartl.com/).
 <h4><a id="sec-1_3_5_4" href="beginning.html#sec-git_merge" class="heading">Merge</a></h4>
 
 
-<p>Now that we&rsquo;ve finished making our changes, we&rsquo;re ready to <em>merge</em> the results back into our master branch:</p>
+<p>Ahora que hemos terminado de hacer los cambios, estamos listos para <em>merge</em> los resultados de nuevo en nuestro master branch son:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git checkout master
 <span class="go">Switched to branch &#39;master&#39;</span>
@@ -1428,9 +1432,9 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<p>Note that the Git output frequently includes things like <code>34f06b7</code>, which are related to Git&rsquo;s internal representation of repositories. Your exact results will differ in these details, but otherwise should essentially match the output shown above.</p>
+<p>Tenga en cuenta que lel output de Git con frecuencia incluye cosas como <code>34f06b7</code>, que están relacionados con la representación interna del repositorio de Git. Los resultados exactos serán diferentes en estos detalles, pero por lo demás deben coincidir esencialmente el resultado anterior.</p>
 
-<p>After you&rsquo;ve merged in the changes, you can tidy up your branches by deleting the topic branch using <code>git branch -d</code> if you&rsquo;re done with it:</p>
+<p>Después de haber fusionado en los cambios, se puede poner en orden sus branch mediante la supresión de la topic branch utilizando <code>git branch -d</code> si aún no lo hiciste:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git branch -d modify-README
 <span class="go">Deleted branch modify-README (was 2c92bef).</span>
@@ -1438,9 +1442,9 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<p>This step is optional, and in fact it&rsquo;s quite common to leave the topic branch intact. This way you can switch back and forth between the topic and master branches, merging in changes every time you reach a natural stopping point.</p>
+<p>Este paso es opcional, y de hecho es muy común dejar la rama tema intacta. De esta manera usted puede alternar entre el master branch y el topic branch, y hacer el merge de los cambios cada vez que se llega a un punto de parada naturales.</p>
 
-<p>As mentioned above, it&rsquo;s also possible to abandon your topic branch changes, in this case with <code>git branch -D</code>:</p>
+<p>Como se mencionó anteriormente, también es posible abandonar el cambios del topic branch, en este caso con <code>git branch -D</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="c"># For illustration only; don&#39;t do this unless you mess up a branch</span>
 <span class="nv">$ </span>git checkout -b topic-branch
@@ -1453,7 +1457,7 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<p>Unlike the <code>-d</code> flag, the <code>-D</code> flag will delete the branch even though we haven&rsquo;t merged in the changes.</p>
+<p>A diferencia de la el flag  <code>-d</code>, el flag <code>-D</code> se eliminará el branch a pesar de que no hemos fusionado (merge)  los cambios.</p>
 
 <div class="label" id="sec-git_push"></div>
 
@@ -1461,19 +1465,21 @@ by [Michael Hartl](http://michaelhartl.com/).
 <h4><a id="sec-1_3_5_5" href="beginning.html#sec-git_push" class="heading">Push</a></h4>
 
 
-<p>Now that we&rsquo;ve updated the <code>README</code>, we can push the changes up to GitHub to see the result. Since we have already done one push (<a class="ref" href="beginning.html#sec-github">Sección&nbsp;1.3.4</a>), on most systems we can omit <code>origin master</code>, and simply run <code>git push</code>:</p>
+<p>Ahora que hemos actualizado el <code>README</code>, podemos empujar los cambios a GitHub para ver el resultado. Puesto que ya hemos hecho un empuje (<a class="ref" href="beginning.html#sec-github">Sección&nbsp;1.3.4</a>), en la mayoría de los sistemas podemos omitir <code>origin master</code>, y simply ejecutar <code>git push</code>:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> git push
 </pre></div>
 </div>
 
 
-<p>As promised, GitHub nicely formats the new file using Markdown (<a class="ref" href="beginning.html#fig-new_readme">Figure&nbsp;1.9</a>).</p>
+<p>Según lo prometido, GitHub vemos los formatos nuevo de los archivo utilizando Markdown (<a class="ref" href="beginning.html#fig-new_readme">Figure&nbsp;1.9</a>).</p>
 
 <div class="label" id="fig-new_readme"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/new_readme.png" alt="new_readme" /></span></div><div class="caption"><span class="header">Figure 1.9: </span><span class="description">The improved <code>README</code> file formatted with Markdown.&nbsp;<a href="http://railstutorial.org/images/figures/new_readme-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/new_readme.png" alt="new_readme" /></span></div>
+<div class="caption"><span class="header">Figure 1.9: </span><span class="description">El archivo  <code>README</code> mejorado con formatos de Markdown.&nbsp;<a href="http://railstutorial.org/images/figures/new_readme-full.png">(full size)</a></span></div>
+</div>
 
 
 
