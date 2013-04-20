@@ -1487,14 +1487,14 @@ by [Michael Hartl](http://michaelhartl.com/).
 <div class="label" id="sec-deploying"></div>
 
 
-<h2><a id="sec-1_4" href="beginning.html#sec-deploying" class="heading"><span class="number">1.4</span> Deploying</a></h2>
+<h2><a id="sec-1_4" href="beginning.html#sec-deploying" class="heading"><span class="number">1.4</span> Implementación</a></h2>
 
 
-<p>Even at this early stage, we&rsquo;re already going to deploy our (still-empty) Rails application to production. This step is optional, but deploying early and often allows us to catch any deployment problems early in our development cycle. The alternative&mdash;deploying only after laborious effort sealed away in a development environment&mdash;often leads to terrible integration headaches when launch time comes.<sup class="footnote" id="fnref-1_22"><a href="#fn-1_22">22</a></sup></p>
+<p>Incluso en esta primera etapa, que ya vamos a implementar la nuestra (todávia vacía) applicación Rails en producción. Este paso es opcional, pero una implementación  temprana a menudo nos permite detectar cualquier problema de implementación temprana en nuestro ciclo de desarrollo. La alternativa - el despliegue sólo después de un esfuerzo laborioso sellada en un entorno de desarrollo - a menudo conduce a terribles problemas de integración cuando llegue el momento del lanzamiento.<sup class="footnote" id="fnref-1_22"><a href="#fn-1_22">22</a></sup></p>
 
-<p>Deploying Rails applications used to be a pain, but the Rails deployment ecosystem has matured rapidly in the past few years, and now there are several great options. These include shared hosts or virtual private servers running <a href="http://www.modrails.com/">Phusion Passenger</a> (a module for the Apache and Nginx<sup class="footnote" id="fnref-1_23"><a href="#fn-1_23">23</a></sup> web servers), full-service deployment companies such as <a href="http://engineyard.com/">Engine Yard</a> and <a href="http://railsmachine.com/">Rails Machine</a>, and cloud deployment services such as <a href="http://cloud.engineyard.com">Engine Yard Cloud</a> and <a href="http://heroku.com/">Heroku</a>.</p>
+<p>Implementación de aplicaciones Rails solía ser un dolor, pero el ecosistema de implementación Rails ha madurado rápidamente en los últimos años, y ahora hay varios grandes opciones. Estos incluyen hosts o servidores privados virtuales que se ejecutan compartidos <a href="http://www.modrails.com/">Phusion Passenger</a> (un módulo para  Apache y Nginx<sup class="footnote" id="fnref-1_23"><a href="#fn-1_23">23</a></sup> servidores web), compañías de implementacion de servicio completo como <a href="http://engineyard.com/">Engine Yard</a> y <a href="http://railsmachine.com/">Rails Machine</a>, y los servicios de implementación de nube, como <a href="http://cloud.engineyard.com">Engine Yard Cloud</a> y <a href="http://heroku.com/">Heroku</a>.</p>
 
-<p>My favorite Rails deployment option is Heroku, which is a hosted platform built specifically for deploying Rails and other web applications.<sup class="footnote" id="fnref-1_24"><a href="#fn-1_24">24</a></sup> Heroku makes deploying Rails applications ridiculously easy&mdash;as long as your source code is under version control with Git. (This is yet another reason to follow the Git setup steps in <a class="ref" href="beginning.html#sec-version_control">Sección&nbsp;1.3</a> if you haven&rsquo;t already.) The rest of this Sección is dedicated to deploying our first application to Heroku.</p>
+<p>Mi opción favorita es la implementación Rails en Heroku, que es una plataforma alojada específicamente para la implementacción de Rails y otras aplicaciones web.<sup class="footnote" id="fnref-1_24"><a href="#fn-1_24">24</a></sup> Heroku hace la implementación de aplicaciones Rails ridículamente fácil &mdash;siempre que su código fuente está bajo control de versiones con Git. (Esta es una razón más para seguir los pasos de configuración de Git en la <a class="ref" href="beginning.html#sec-version_control">Sección&nbsp;1.3</a> si usted ya no lo ha hecho.) El resto de esta sección se dedica a la implementación de nuestra primera aplicación para Heroku.</p>
 
 <div class="label" id="sec-heroku_setup"></div>
 
@@ -1502,7 +1502,7 @@ by [Michael Hartl](http://michaelhartl.com/).
 <h3><a id="sec-1_4_1" href="beginning.html#sec-heroku_setup" class="heading"><span class="number">1.4.1</span> Heroku setup</a></h3>
 
 
-<p>Heroku uses the <a href="http://www.postgresql.org/">PostgreSQL</a> database (pronounced &ldquo;post-gres-cue-ell&rdquo;, and often called &ldquo;Postgres&rdquo; for short), which means that we need to add the <tt>pg</tt>&nbsp;gem in the production environment to allow Rails to talk to Postgres:</p>
+<p>Heroku utiliza la base de datos <a href="http://www.postgresql.org/">PostgreSQL</a> (pronunciado &ldquo;post-gres-cue-ell&rdquo;, y a menudo llamado &ldquo;Postgres&rdquo;), eso significa que tenemos que añadir la gema pg en el entorno de producción para permitir Rails para hablar con Postgres:</p>
 
 <div class="code"><div class="highlight"><pre><span class="n">group</span> <span class="ss">:production</span> <span class="k">do</span>
   <span class="n">gem</span> <span class="s1">&#39;pg&#39;</span><span class="p">,</span> <span class="s1">&#39;0.12.2&#39;</span>
@@ -1511,13 +1511,13 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<p>Appending this code to the <code>Gemfile</code> from <a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> yields <a class="ref" href="beginning.html#code-gemfile_pg_gem">Listing&nbsp;1.9</a>.</p>
+<p>Añadiendo este código a la <code>Gemfile</code> come en el <a class="ref" href="beginning.html#code-gemfile_sqlite_version">Listing&nbsp;1.5</a> y en el <a class="ref" href="beginning.html#code-gemfile_pg_gem">Listing&nbsp;1.9</a>.</p>
 
 <div class="label" id="code-gemfile_pg_gem"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.9.</span> <span class="description">A <code>Gemfile</code> with an added <tt>pg</tt> gem for PostgreSQL.</span> </div>
+<div class="listing"><span class="header">Listing 1.9.</span> <span class="description">Un <code>Gemfile</code> con un añadido <tt>pg</tt> gem por PostgreSQL.</span> </div>
 <div class="code"><div class="highlight"><pre><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
 
 <span class="n">gem</span> <span class="s1">&#39;rails&#39;</span><span class="p">,</span> <span class="s1">&#39;3.2.13&#39;</span>
@@ -1545,29 +1545,29 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div></div>
 
 
-<p>To install it, we run <code>bundle install</code> with a special flag:</p>
+<p>Para instalarlo, se ejecuta <code>bundle install</code> con un special flag:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> bundle install --without production
 </pre></div>
 </div>
 
 
-<p>The <tt class="verb">--without production</tt> option prevents the local installation of any production gems, which in this case is just&nbsp;<tt>pg</tt>. (Because the only gem we&rsquo;ve added is restricted to a production environment, right now this command doesn&rsquo;t actually install any additional local gems, but it&rsquo;s needed to update <code>Gemfile.lock</code> since that&rsquo;s what Heroku uses to infer the gem requirements of our application.)</p>
+<p>El <tt class="verb">--without production</tt> opción evita la instalación local de las gemas de producción, que en este caso es sólo&nbsp;<tt>pg</tt>. (Debido a que la única gema que hemos añadido se limita a un entorno de producción, ahora este comando en realidad no instala ningún gemas locales adicionales, pero se necesita para actualizar <code>Gemfile.lock</code> ya que eso es lo que usa Heroku para entender los requisitos de la gema de nuestra aplicación.)</p>
 
-<p>Next we have to create and configure a new Heroku account. The first step is to <a href="http://api.heroku.com/signup">sign up for Heroku</a>; after checking your email to complete the creation of your account, install the necessary Heroku software using the <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>.<sup class="footnote" id="fnref-1_25"><a href="#fn-1_25">25</a></sup> Then use the <code>heroku</code> command to log in at the command line (you may have to exit and restart your terminal program first):</p>
+<p>A continuación tenemos que crear y configurar una nueva cuenta de Heroku. El primer paso es <a href="http://api.heroku.com/signup">sign up for Heroku</a>; después de comprobar su correo electrónico para completar la creación de su cuenta, instalar el software Heroku necesario utilizando <a href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>.<sup class="footnote" id="fnref-1_25"><a href="#fn-1_25">25</a></sup> A continuación, utilice el comando <code>heroku</code>  para acceder a la línea de comandos (es posible que tenga que salir y reiniciar el programa de terminal primero):</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> heroku login
 </pre></div>
 </div>
 
 
-<p>Finally, navigate back to your Rails project directory and use the <code>heroku</code> command to create a place on the Heroku servers for the sample app to live (<a class="ref" href="beginning.html#code-heroku_create">Listing&nbsp;1.10</a>).</p>
+<p>Por último, vaya de nuevo a su directorio del proyecto Rails y utilizar el comando <code>heroku</code> para crear un lugar en los servidores Heroku para poner el linea la aplicación de ejemplo (<a class="ref" href="beginning.html#code-heroku_create">Listing&nbsp;1.10</a>).</p>
 
 <div class="label" id="code-heroku_create"></div>
 
 
 <div class="codelisting">
-<div class="listing"><span class="header">Listing 1.10.</span> <span class="description">Creating a new application at Heroku.</span> </div>
+<div class="listing"><span class="header">Listing 1.10.</span> <span class="description">Creación de una nueva aplicación en Heroku.</span> </div>
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> ~/rails_projects/first_app
 <span class="gp">$</span> heroku create
 <span class="go">Created http://stormy-cloud-5881.herokuapp.com/ |</span>
@@ -1577,12 +1577,12 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div></div>
 
 
-<p>The <code>heroku</code> command creates a new subdomain just for our application, available for immediate viewing. There&rsquo;s nothing there yet, though, so let&rsquo;s get busy deploying.</p>
+<p>El comando <code>heroku</code> crea un nuevo subdominio sólo para nuestra aplicación, disponibles para visionarlo. No hay nada allí todavía, sin embargo, así que vamos a la implementación.</p>
 
 <div class="label" id="sec-heroku_step_one"></div>
 
 
-<h3><a id="sec-1_4_2" href="beginning.html#sec-heroku_step_one" class="heading"><span class="number">1.4.2</span> Heroku deployment, step one</a></h3>
+<h3><a id="sec-1_4_2" href="beginning.html#sec-heroku_step_one" class="heading"><span class="number">1.4.2</span> Implementación de Heroku, paso uno</a></h3>
 
 
 <p>To deploy the application, the first step is to use Git to push it up to Heroku:</p>
@@ -1592,30 +1592,33 @@ by [Michael Hartl](http://michaelhartl.com/).
 </div>
 
 
-<h3><a id="sec-1_4_3" href="beginning.html#sec-1_4_3" class="heading"><span class="number">1.4.3</span> Heroku deployment, step two</a></h3>
+<h3><a id="sec-1_4_3" href="beginning.html#sec-1_4_3" class="heading"><span class="number">1.4.3</span> Implementación de Heroku, paso dos</a></h3>
 
 
-<p>There is no step two! We&rsquo;re already done (<a class="ref" href="beginning.html#fig-heroku_app_31">Figure&nbsp;1.10</a>). To see your newly deployed application, you can visit the address that you saw when you ran <code>heroku create</code> (i.e., <a class="ref" href="beginning.html#code-heroku_create">Listing&nbsp;1.10</a>, but with the address for your app, not the address for mine). You can also use an argument to the <code>heroku</code> command that automatically opens your browser with the right address:</p>
+<p>No hay dos pasos! Ya hemos terminado (<a class="ref" href="beginning.html#fig-heroku_app_31">Figure&nbsp;1.10</a>). Para ver su recién aplicación  implementada, se puede visitar la dirección que usted vio cuando ejecutó <code>heroku create</code> (ejemplo, <a class="ref" href="beginning.html#code-heroku_create">Listing&nbsp;1.10</a>, pero con la dirección de su aplicación, no la mia dirección). También puede utilizar un comando de <code>heroku</code> que se abre automáticamente en su proprio navegador con la dirección correcta:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> heroku open
 </pre></div>
 </div>
 
 
-<p>Because of the details of their setup, the &ldquo;About your application&rsquo;s environment&rdquo; link doesn&rsquo;t work on Heroku. Don&rsquo;t worry; this is normal. The error will go away (in the context of the full sample application) when we remove the default Rails page in <a class="ref" href="filling-in-the-layout.html#sec-rails_routes">Sección&nbsp;5.3.2</a>.</p>
+<p>Debido a los detalles de su configuración, el enlace &quot;Sobre el entorno de su aplicación&quot;  no funciona en Heroku. No se preocupe, esto es normal. El error desaparece (en el contexto de la aplicación de ejemplo completo) cuando quitamos la página Rails predeterminada en la <a class="ref" href="filling-in-the-layout.html#sec-rails_routes">Sección&nbsp;5.3.2</a>.</p>
 
 <div class="label" id="fig-heroku_app_31"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/heroku_app_31.png" alt="heroku_app_31" /></span></div><div class="caption"><span class="header">Figure 1.10: </span><span class="description">The first Tutorial de Rails application running on Heroku.&nbsp;<a href="http://railstutorial.org/images/figures/heroku_app_31-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/heroku_app_31.png" alt="heroku_app_31" /></span></div>
+<div class="caption"><span class="header">Figure 1.10: </span><span class="description">La primera aplicación de Tutorial  de Rails  se ejecutará en Heroku.&nbsp;<a href="http://railstutorial.org/images/figures/heroku_app_31-full.png">(tamaño completo)</a></span></div>
+</div>
 
 
-<p>Once you&rsquo;ve deployed successfully, Heroku provides a beautiful interface for administering and configuring your application (<a class="ref" href="beginning.html#fig-heroku_info">Figure&nbsp;1.11</a>).</p>
+<p>Una vez que se ha implementado con éxito, Heroku ofrece una hermosa interfaz para la administración y configuración de la aplicación (<a class="ref" href="beginning.html#fig-heroku_info">Figure&nbsp;1.11</a>).</p>
 
 <div class="label" id="fig-heroku_info"></div>
 
 
-<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/heroku_info.png" alt="heroku_info" /></span></div><div class="caption"><span class="header">Figure 1.11: </span><span class="description">The beautiful interface at Heroku.&nbsp;<a href="http://railstutorial.org/images/figures/heroku_info-full.png">(full size)</a></span></div></div>
+<div class="figure"><div class="center"><span class="graphic"><img src="images/figures/heroku_info.png" alt="heroku_info" /></span></div><div class="caption"><span class="header">Figure 1.11: </span><span class="description">La interfaz bonita en Heroku.&nbsp;<a href="http://railstutorial.org/images/figures/heroku_info-full.png">(tamaño completo)</a></span></div>
+</div>
 
 
 
@@ -1623,78 +1626,78 @@ by [Michael Hartl](http://michaelhartl.com/).
 <div class="label" id="sec-heroku_commands"></div>
 
 
-<h3><a id="sec-1_4_4" href="beginning.html#sec-heroku_commands" class="heading"><span class="number">1.4.4</span> Heroku commands</a></h3>
+<h3><a id="sec-1_4_4" href="beginning.html#sec-heroku_commands" class="heading"><span class="number">1.4.4</span> Comandos de Heroku</a></h3>
 
 
-<p>There are many <a href="http://devcenter.heroku.com/heroku-command">Heroku commands</a>, and we&rsquo;ll barely scratch the surface in this book. Let&rsquo;s take a minute to show just one of them by renaming the application as follows:</p>
+<p>Hay muchos <a href="http://devcenter.heroku.com/heroku-command">Heroku commands</a>, y vamos a empezar rascando la superficie en este libro. Tomemos un minuto para mostrar sólo algunos cambiando el nombre de la aplicación de la siguiente:</p>
 
 <div class="code"><div class="highlight"><pre><span class="gp">$</span> heroku rename railstutorial
 </pre></div>
 </div>
 
 
-<p>Don&rsquo;t use this name yourself; it&rsquo;s already taken by me! In fact, you probably shouldn&rsquo;t bother with this step right now; using the default address supplied by Heroku is fine. But if you do want to rename your application, you can arrange for it to be reasonably secure by using a random or obscure subdomain, such as the following:</p>
+<p>No utilice este nombre, porqué ya está tomado por mí! De hecho, probablemente no debería molestarse con este paso en este momento, con la dirección predeterminada para Heroku ya está muy bien. Pero si usted quiere cambiar el nombre de la aplicación, se pueden hacer arreglos para que sea razonablemente seguro mediante el uso de un subdominio aleatorio y oscuro, tales como los siguientes:</p>
 
 <pre class="verbatim">hwpcbmze.heroku.com
 seyjhflo.heroku.com
 jhyicevg.heroku.com</pre>
 
 
-<p>With a random subdomain like this, someone could visit your site only if you gave them the address. (By the way, as a preview of Ruby&rsquo;s compact awesomeness, here&rsquo;s the code I used to generate the random subdomains:</p>
+<p>Con un subdominio como esto, alguien podría visitar su sitio si usted les dio la dirección. (Por cierto, como una vista anticipada de la genialidad de Ruby, aquí está el código que utiliza para generar los subdominios azar:</p>
 
 <div class="code"><div class="highlight"><pre><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="o">.</span><span class="n">.</span><span class="s1">&#39;z&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span><span class="o">.</span><span class="n">shuffle</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">7</span><span class="o">].</span><span class="n">join</span>
 </pre></div>
 </div>
 
 
-<p>Pretty sweet.)</p>
+<p>Muy dulce.)</p>
 
-<p>In addition to supporting subdomains, Heroku also supports custom domains. (In fact, the <a href="http://railstutorial.org">Ruby on Tutorial de Rails site</a> lives at Heroku; if you&rsquo;re reading this book online, you&rsquo;re looking at a Heroku-hosted site right now!) See the <a href="http://devcenter.heroku.com/">Heroku documentation</a> for more information about custom domains and other Heroku topics.</p>
+<p>Además de apoyar los subdominios, Heroku también es compatible con dominios personalizados. (De hecho, la <a href="http://railstutorial.org">Ruby on Tutorial de Rails site</a> vive en Heroku; si estás leyendo este libro en línea, usted está buscando en un sitio Heroku alojada en este momento!) Consulte la <a href="http://devcenter.heroku.com/">Heroku documentation</a> para obtener más información acerca de los dominios personalizados y otros temas heroku.</p>
 
 <div class="label" id="sec-beginning_conclusion"></div>
 
 
-<h2><a id="sec-1_5" href="beginning.html#sec-beginning_conclusion" class="heading"><span class="number">1.5</span> Conclusion</a></h2>
+<h2><a id="sec-1_5" href="beginning.html#sec-beginning_conclusion" class="heading"><span class="number">1.5</span> Conclusión</a></h2>
 
 
-<p>We&rsquo;ve come a long way in this chapter: installation, development environment setup, version control, and deployment. If you want to share your progress at this point, feel free to send a tweet or Facebook status update with something like this:</p>
+<p>Hemos recorrido un largo camino en este capítulo: configuración de la instalación, entorno de desarrollo, control de versiones, y implementación. Si quieres compartir tus progresos en este punto, no dude en enviar un tweet o actualización de estado en Facebook con algo como esto:</p>
 
 <div class="center"><a href="http://twitter.com/?status=I'm%20learning%20Ruby%20on%20Rails%20with%20@railstutorial!%20http://railstutorial.org/">I&rsquo;m learning Ruby on Rails with @railstutorial! http://railstutorial.org/</a></div>
 
 
 <p>&nbsp;</p>
 
-<p>All that&rsquo;s left is to actually start learning Rails! Let&rsquo;s get to it.</p>
+<p>Todo lo que queda es comenzar realmente Rails vamos a aprender! Vamos a llegar a ella.</p>
 
 <div class="navigation">  <a class="next_page" href="a-demo-app.html#top">
     <span class="number">Chapter 2</span> A demo app&nbsp;&raquo;
   </a>
 </div><div class="footnotes">
 <ol>
-<li id="fn-1_1"><em>URI</em> stands for Uniform Resource Identifier, while the slightly less general <em>URL</em> stands for Uniform Resource Locator. In practice, the URI is usually equivalent to &ldquo;the thing you see in the address bar of your browser&rdquo;.&nbsp;<a class="arrow" href="#fnref-1_1">&uarr;</a></li>
+<li id="fn-1_1"><em>URI</em> es sinónimo de Uniform Resource Identifier, mientras que el ligeramente menos general <em>URL</em> es sinónimo de Uniform Resource Locator. En la práctica, la URI suele ser equivalente a &quot;lo que se ve en la barra de direcciones del navegador&quot;.&nbsp;<a class="arrow" href="#fnref-1_1">&uarr;</a></li>
 <li id="fn-1_2">http://tryruby.org/&nbsp;<a class="arrow" href="#fnref-1_2">&uarr;</a></li>
 <li id="fn-1_3">http://railsforzombies.org/&nbsp;<a class="arrow" href="#fnref-1_3">&uarr;</a></li>
 <li id="fn-1_4">http://railstutorial.org/screencasts&nbsp;<a class="arrow" href="#fnref-1_4">&uarr;</a></li>
-<li id="fn-1_5">When reading the <em>Tutorial de Rails</em>, you may find it convenient to follow an internal Sección link to look at the reference and then immediately go back to where you were before. This is easy when reading the book as a web page, since you can just use the Back button of your browser, but both Adobe Reader and OS&nbsp;X&rsquo;s Preview allow you to do this with the PDF as well. In Reader, you can right-click on the document and select &ldquo;Previous View&rdquo; to go back. In Preview, use the Go menu: <tt>Go &gt; Back</tt>.&nbsp;<a class="arrow" href="#fnref-1_5">&uarr;</a></li>
-<li id="fn-1_6">Many people erroneously believe that <code>sudo</code> stands for &ldquo;superuser do&rdquo; because it runs commands as the superuser (root) by default. In fact, <code>sudo</code> is a concatenation of the <code>su</code> command and the English word &ldquo;do&rdquo;, and <code>su</code> stands for &ldquo;substitute user&rdquo;, as you can verify by typing <code>man su</code> in your shell.&nbsp;<a class="arrow" href="#fnref-1_6">&uarr;</a></li>
+<li id="fn-1_5">Cuando empieza a leer el <em>Tutorial de Rails</em>, puede que le resulte conveniente seguir un interno sección link mirar la referencia y después volver inmediatamente a donde estaba antes. Esto es fácil cuando se lee el libro como una página web, ya que sólo se puede utilizar el botón Atrás de su navegador, pero  las vista anticipada de Adobe Reader y OS&nbsp;X le permiten hacer esto con el PDF también. In Reader, usted puede hacer clic derecho sobre el documento y seleccione &quot;Vista Anterior&quot; para volver atras. In Preview, utiliza el menu Go : <tt>Go &gt; Back</tt>.&nbsp;<a class="arrow" href="#fnref-1_5">&uarr;</a></li>
+<li id="fn-1_6">Muchas personas creen erróneamente que <code>sudo</code> es sinónimo de &quot;superuser do&quot; porque se ejecuta comandos como superusuario (root) de forma predeterminada. De hecho, <code>sudo</code> es una concatenación de los comando <code>su</code>  y la palabra Inglés &quot;do&quot;, y <code>su</code> significa &quot;substitute user&quot;, como se puede verificar tecleando <code>man su</code> en la shell.&nbsp;<a class="arrow" href="#fnref-1_6">&uarr;</a></li>
 <li id="fn-1_7">http://railstutorial.org/help&nbsp;<a class="arrow" href="#fnref-1_7">&uarr;</a></li>
 <li id="fn-1_8">https://github.com/perfectionist/sample_project/wiki&nbsp;<a class="arrow" href="#fnref-1_8">&uarr;</a></li>
-<li id="fn-1_9">The vi editor is one of the most ancient yet powerful weapons in the Unix arsenal, and Vim is &ldquo;vi improved&rdquo;.&nbsp;<a class="arrow" href="#fnref-1_9">&uarr;</a></li>
+<li id="fn-1_9">El editor Vi es una de las más antiguas y poderosa arma en el arsenal de Unix, y Vim es &ldquo;vi improved&rdquo;.&nbsp;<a class="arrow" href="#fnref-1_9">&uarr;</a></li>
 <li id="fn-1_10">https://github.com/mhartl/rails_tutorial_sublime_text&nbsp;<a class="arrow" href="#fnref-1_10">&uarr;</a></li>
-<li id="fn-1_11">If you haven&rsquo;t used IRC before, I suggest you start by searching the web for &ldquo;irc client &lt;your platform&gt;&rdquo;. Two good native clients for OS&nbsp;X are <a href="http://colloquy.info/">Colloquy</a> and <a href="http://limechat.net/mac/">LimeChat</a>. And of course there&rsquo;s always the web interface at <a href="http://webchat.freenode.net/?channels=rvm">http://webchat.freenode.net/?channels=rvm</a>.&nbsp;<a class="arrow" href="#fnref-1_11">&uarr;</a></li>
-<li id="fn-1_12">You might have to install the <a href="http://subversion.tigris.org/">Subversion version control system</a> to get this to work.&nbsp;<a class="arrow" href="#fnref-1_12">&uarr;</a></li>
+<li id="fn-1_11">Si usted no ha utilizado IRC antes, le sugiero que empiece por buscar en la web &ldquo;irc client &lt;su plataforma&gt;&rdquo;. Dos buenos clientes nativos para OS X son <a href="http://colloquy.info/">Colloquy</a> y <a href="http://limechat.net/mac/">LimeChat</a>. Y, por supuesto, siempre hay la interfaz web <a href="http://webchat.freenode.net/?channels=rvm">http://webchat.freenode.net/?channels=rvm</a>.&nbsp;<a class="arrow" href="#fnref-1_11">&uarr;</a></li>
+<li id="fn-1_12">Puede que tenga que instalar el <a href="http://subversion.tigris.org/">Subversion version control system</a> para conseguir que esto funcione.&nbsp;<a class="arrow" href="#fnref-1_12">&uarr;</a></li>
 <li id="fn-1_13">http://mxcl.github.com/homebrew/&nbsp;<a class="arrow" href="#fnref-1_13">&uarr;</a></li>
-<li id="fn-1_14">This step is necessary only if you&rsquo;ve changed the version of the Rails gem, which would likely happen only if you&rsquo;re using Rails Installer, but it does no harm to run it in other cases as well.&nbsp;<a class="arrow" href="#fnref-1_14">&uarr;</a></li>
+<li id="fn-1_14">Este paso sólo es necesario si ha cambiado la versión de la gema Rails, lo que probablemente sucederá sólo si usted está usando Rails Installer, pero no hace daño a ejecutarse en la mayoria de los  casos.&nbsp;<a class="arrow" href="#fnref-1_14">&uarr;</a></li>
 <li id="fn-1_15">https://developer.apple.com/downloads/&nbsp;<a class="arrow" href="#fnref-1_15">&uarr;</a></li>
-<li id="fn-1_16">Recall from <a class="ref" href="beginning.html#sec-conventions">Sección&nbsp;1.1.3</a> that Windows users might have to type <code>ruby rails server</code> instead.&nbsp;<a class="arrow" href="#fnref-1_16">&uarr;</a></li>
-<li id="fn-1_17">Normally, websites run on port 80, but this usually requires special privileges, so Rails picks a less restricted higher-numbered port for the development server.&nbsp;<a class="arrow" href="#fnref-1_17">&uarr;</a></li>
-<li id="fn-1_18">Normally this is a feature, since it lets you continue to use the command line after launching your editor, but Git interprets the detachment as closing the file with an empty commit message, which prevents the commit from going through. I only mention this point because it can be seriously confusing if you try to set your editor to <code>subl</code> or <code>gvim</code> without the flag. If you find this note confusing, feel free to ignore it.&nbsp;<a class="arrow" href="#fnref-1_18">&uarr;</a></li>
-<li id="fn-1_19">If you can&rsquo;t see the <code>.gitignore</code> file in your directory, you may need to configure your directory viewer to show hidden files.&nbsp;<a class="arrow" href="#fnref-1_19">&uarr;</a></li>
-<li id="fn-1_20">If in the future any unwanted files start showing up when you type <code>git status</code>, just add them to your <code>.gitignore</code> file from <a class="ref" href="beginning.html#code-gitignore">Listing&nbsp;1.7</a>.&nbsp;<a class="arrow" href="#fnref-1_20">&uarr;</a></li>
-<li id="fn-1_21">See the chapter <a href="http://progit.org/book/ch3-0.html">Git Branching in <em>Pro Git</em></a> for details.&nbsp;<a class="arrow" href="#fnref-1_21">&uarr;</a></li>
-<li id="fn-1_22">Though it shouldn&rsquo;t matter for the example applications in the <em>Tutorial de Rails</em>, if you&rsquo;re worried about accidentally making your app public too soon there are several options; see <a class="ref" href="beginning.html#sec-heroku_commands">Sección&nbsp;1.4.4</a> for one.&nbsp;<a class="arrow" href="#fnref-1_22">&uarr;</a></li>
-<li id="fn-1_23">Pronounced &ldquo;Engine X&rdquo;.&nbsp;<a class="arrow" href="#fnref-1_23">&uarr;</a></li>
-<li id="fn-1_24">Heroku works with any Ruby web platform that uses <a href="http://rack.rubyforge.org/">Rack middleware</a>, which provides a standard interface between web frameworks and web servers. Adoption of the Rack interface has been extraordinarily strong in the Ruby community, including frameworks as varied as <a href="http://www.sinatrarb.com/">Sinatra</a>, <a href="http://ramaze.net/">Ramaze</a>, <a href="http://camping.rubyforge.org/files/README.html">Camping</a>, and Rails, which means that Heroku basically supports any Ruby web app.&nbsp;<a class="arrow" href="#fnref-1_24">&uarr;</a></li>
+<li id="fn-1_16">Recuerde de la <a class="ref" href="beginning.html#sec-conventions">Sección&nbsp;1.1.3</a> que los usuarios de Windows pueden tener que escribir <code>ruby rails server</code>.&nbsp;<a class="arrow" href="#fnref-1_16">&uarr;</a></li>
+<li id="fn-1_17">Normalmente, los sitios web se ejecutan en el puerto 80, pero esto por lo general requiere privilegios especiales, así que Rails utiliza un puerto de numero más alto menos restringido para los el servidor de desarrollo.&nbsp;<a class="arrow" href="#fnref-1_17">&uarr;</a></li>
+<li id="fn-1_18">Normalmente se trata de una característica, ya que le permite continuar utilizando la línea de comandos después de lanzar su editor, pero Git interpreta el desprendimiento como cerrar el archivo con un mensaje de commit vacío, lo que evita de empujar el commit. Sólo menciono este punto, ya que puede ser confuso si se intenta establecer su editor para <code>subl</code> o <code>gvim</code> sin el flag. Si encuentras esta nota confusa, no dude en ignorar.&nbsp;<a class="arrow" href="#fnref-1_18">&uarr;</a></li>
+<li id="fn-1_19">Si no puede ver el archivo <code>.gitignore</code> en tu directorio, puede que tenga que configurar el espectador directorio para mostrar archivos ocultos.&nbsp;<a class="arrow" href="#fnref-1_19">&uarr;</a></li>
+<li id="fn-1_20">Si en el futuro los archivos no deseados comienzan a aparecer cuando se escribe <code>git status</code>,  añadir al archivo <code>.gitignore</code> como indicado <a class="ref" href="beginning.html#code-gitignore">Listing&nbsp;1.7</a>.&nbsp;<a class="arrow" href="#fnref-1_20">&uarr;</a></li>
+<li id="fn-1_21">Consulte el capítulo <a href="http://progit.org/book/ch3-0.html">Git Branching in <em>Pro Git</em></a> para más detalles.&nbsp;<a class="arrow" href="#fnref-1_21">&uarr;</a></li>
+<li id="fn-1_22">A pesar de que no debe importar para las aplicaciones de ejemplo en el <em>Tutorial de Rails</em>, si usted está preocupado acerca de querer hacer público su aplicación demasiado pronto hay varias opciones, véase <a class="ref" href="beginning.html#sec-heroku_commands">Sección&nbsp;1.4.4</a> para uno.&nbsp;<a class="arrow" href="#fnref-1_22">&uarr;</a></li>
+<li id="fn-1_23">Pronunciado &ldquo;Engine X&rdquo;.&nbsp;<a class="arrow" href="#fnref-1_23">&uarr;</a></li>
+<li id="fn-1_24">Heroku funciona con cualquier plataforma web de Ruby que utiliza <a href="http://rack.rubyforge.org/">Rack middleware</a>, que proporciona una interfaz estándar entre los marcos y servidores web. La adopción de la interfaz de Rack ha sido extraordinariamente fuerte en la comunidad Ruby, incluidos los vario y diferentes framework como <a href="http://www.sinatrarb.com/">Sinatra</a>, <a href="http://ramaze.net/">Ramaze</a>, <a href="http://camping.rubyforge.org/files/README.html">Camping</a>, y Rails, y eso  significa que Heroku básicamente compatible con cualquier aplicación web de Ruby.&nbsp;<a class="arrow" href="#fnref-1_24">&uarr;</a></li>
 <li id="fn-1_25">https://toolbelt.heroku.com/&nbsp;<a class="arrow" href="#fnref-1_25">&uarr;</a></li>
 </ol>
 </div>
